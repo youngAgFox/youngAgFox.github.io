@@ -24,7 +24,7 @@ public class Installer {
         try {
             return new URL(urlPath);
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            System.err.println("Passed bad url: " + urlPath);
         }
         return null;
     }
@@ -40,7 +40,6 @@ public class Installer {
             if (tries > 0) {
                 tries--;
                 System.out.println("Failed attempt, remaining: " + tries);
-
                 download(url);
             } else exit("Failed to replace jar");
         }
