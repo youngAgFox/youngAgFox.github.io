@@ -48,7 +48,7 @@ public class Installer {
     private static void exit(String message) {
         System.err.println(message);
         try {
-            Runtime.getRuntime().exec("java -jar " + scanJarName() + " noUpdate");
+            Runtime.getRuntime().exec("java -jar " + scanJarName() + " --update=fail --updateLog=\"" + message + "\"");
         } catch (NullPointerException | IOException e) {
             System.err.println("Failed to restart jar: " + e.getMessage());
         }
