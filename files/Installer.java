@@ -31,9 +31,11 @@ public class Installer {
 
     private static void download(URL url) {
         try {
+            System.out.println("Downloading");
             InputStream stream = url.openStream();
             File file = new File(System.getProperty("user.dir"), scanJarName());
             Files.copy(stream, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Installed");
         } catch (IOException e) {
             if (tries > 0) {
                 tries--;
