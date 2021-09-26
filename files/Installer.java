@@ -22,7 +22,7 @@ public class Installer {
             installerFile.deleteOnExit();
         }
         String jarURL = args[0];
-        System.out.println("Installing from: " + jarURL);
+        System.out.println("Installing from " + jarURL);
         URL url = createURL(jarURL);
         if (url != null) download(url);
         else System.err.println("Failed to createURL from " + jarURL);
