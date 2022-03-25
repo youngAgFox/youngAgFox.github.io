@@ -1,0 +1,185 @@
+:root {
+    /* colors */
+    --clr-goldenBrown: 53 95% 66%;
+    --clr-whiteBlue: 186 5% 96%;
+    --clr-gold: 53 85% 96%;
+    --clr-pink: 327 95% 96%;
+    --clr-violet: 327 90% 66%;
+
+    /* colors - blue silver monochromatic */
+    --clr-darkSteel: 187 7% 10%;
+    --clr-steel: 187 7% 45%;
+    --clr-lightBlue: 187 37% 96%;
+    --clr-lightSilver: 187 7% 95%;
+    --clr-steelBlue: 187 37% 45%;
+    --clr-silver: 187 7% 75%;
+
+    /* color map */
+    --bg-header: var(--clr-steelBlue);
+    --ac-header: var(--clr-silver);
+    --bg-body: var(--clr-lightSilver);
+
+    /* font */
+    --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fs-800: 3.6em;
+    --fs-700: 2.8em;
+    --fs-600: 2.3em;
+    --fs-500: 2.0em;
+    --fs-400: 1.6em;
+    --fs-300: 1.2em;
+    --fs-200: 1.0em;
+}
+
+/* reset */
+*, ::before, ::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+img {
+    image-rendering: optimizeQuality;
+    object-fit: contain;
+}
+
+p, a, li {
+    font-size: var(--fs-300);
+}
+
+h1,h2,h3,h4 {
+    color: hsl(var(--clr-lightSilver));
+}
+
+h1 {font-size: var(--fs-800);}
+h2 {font-size: var(--fs-600);}
+h3 {font-size: var(--fs-500);}
+h4 {font-size: var(--fs-300);}
+
+/* Utility Classes */
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid {
+    display: grid;
+}
+
+.pg-margin {
+    margin: 0 15%;
+}
+
+/* animation classes */
+.slideIn-left {
+    position: relative;
+    animation-name: slideIn-left;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    left: 100%;
+}
+
+@keyframes slideIn-left {
+    to {
+        left: 0;
+    }
+}
+
+.slideIn-down {
+    position: relative;
+    animation-name: slideIn-down;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    bottom: 100%;
+}
+
+@keyframes slideIn-down {
+    to {
+        bottom: 0;
+    }
+}
+
+.fadeIn {
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 100%;
+    }
+}
+
+.greyScale-transition {
+    animation-name: greyScale-transition;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes greyScale-transition {
+    from {
+        filter: grayscale(100%);
+    }
+
+    to {
+        filter: grayscale(0);
+    }
+}
+
+/* font color by bg */
+.fc-body {background-color: hsl(var(--clr-silver));}
+.fc-header {background-color: hsl(var(--clr-lightSilver));}
+/* font by color */
+.fc-steel{ color: hsl(var(--clr-steel));}
+.fc-lightBlue{ color: hsl(var(--clr-lightBlue));}
+.fc-lightSilver{ color: hsl(var(--clr-lightSilver));}
+.fc-steelBlue{ color: hsl(var(--clr-steelBlue));}
+.fc-silver{ color: hsl(var(--clr-silver));}
+.fc-white { color: #FFF;}
+
+/* font size util */
+.fs-800 {font-size: var(--fs-800);}
+.fs-700 {font-size: var(--fs-700);}
+.fs-600 {font-size: var(--fs-600);}
+.fs-500 {font-size: var(--fs-500);}
+.fs-400 {font-size: var(--fs-400);}
+.fs-300 {font-size: var(--fs-300);}
+.fs-200 {font-size: var(--fs-200);}
+
+/* Text decor */
+.underline {text-decoration: underline;}
+
+/* background & accent colors */
+.bg-body {background-color: hsl(var(--bg-body));}
+.bg-header {background-color: hsl(var(--bg-header));}
+.ac-header {background-color: hsl(var(--clr-lightSilver));}
+
+.bg-darkSteel{ background-color: hsl(var(--clr-darkSteel));}
+.bg-steel{ background-color: hsl(var(--clr-steel));}
+.bg-lightBlue{ background-color: hsl(var(--clr-lightBlue));}
+.bg-lightSilver{ background-color: hsl(var(--clr-lightSilver));}
+.bg-steelBlue{ background-color: hsl(var(--clr-steelBlue));}
+.bg-silver{ background-color: hsl(var(--clr-silver));}
+
+
+#canvas-container::before {
+    content: "";
+    position: absolute;
+    height: 5%;
+    width: 100%;
+    background: linear-gradient(hsl(var(--clr-lightSilver)), hsl(var(--clr-darkSteel)));
+}
+
+#projects img {
+
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Anthony Segedi</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/fireworks.js" defer></script>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="bg-body" style="height: 100vh">
+        <div class="flex" style="border-bottom: 8px outset hsl(var(--ac-header));">
+            <div class="bg-header flex-column" style="padding: 1cm 6ch; gap: 2ch;">
+                <h1>
+                    Hey I'm AJ!
+                </h1>
+                <img src="./res/images/work_pic.jpg"
+                    alt="A dashing picture of AJ in front of a color splashed canvas of contrasting snowy trees."
+                    class="greyScale-transition"
+                    style="max-height: 260px; border: 4px dashed hsl(var(--clr-silver)); align-self: center; border-radius: 42px;">
+            </div>
+            <div class="bg-steel slideIn-left fs-400"
+                style="padding: 1cm 4ch; border-left: 8px solid hsl(var(--ac-header)); flex: 1;">
+
+                <p class="fc-white" style="margin-top: 2ch;">
+                    I am a problem solver with a cool head - and a cool head of hair that has been growing
+                    steadily more silver since I was a young kid.
+                    <br><br>
+                    <span class="slideIn-left" style="left: 140%; animation-delay: 4s;">
+                        Working inside and outside of the classroom, driven by my passion
+                        to understand and accomplish more with my knowledge I have improved my skills in preparation
+                        for when I have the opportunity to put them to use.
+                    </span>
+                    <br><br>
+                    <span class="fadeIn" style="animation-delay: 7s;">
+                        Here is what I have been up to.
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="fadeIn flex" style="animation-delay: 8.5s; position: relative; justify-content: center;">
+            <p class="fs-400" style="margin: 1rem;">
+                Check it out below!
+            </p>
+            <img src="./res/images/continue-arrow.svg" alt="Scroll to Continue" height="60px"
+                style="position: absolute; top: 3rem;" />
+            <img src="./res/images/continue-arrow-sb.svg" alt="Scroll to Continue" height="80px"
+                style="position: absolute; top: 3.5rem;" />
+        </div>
+
+    </div>
+    <!-- end of first page -->
+    <!-- transition div -->
+    <div id="canvas-container"
+        style="height: 175vh; background: hsl(var(--clr-darkSteel)); position: relative; z-index: -1;">
+        <!-- fireworkCanvas -->
+        <canvas id="fireworkCanvas" style="position: absolute; z-index: 10;"></canvas>
+        <div class="pg-margin flex-column" style="text-align: center; position: relative; top: 35%;">
+            <!-- firework target -->
+            <h1 id="fireworkTarget" class="fc-steelBlue">
+                Portfolio Projects 2022
+            </h1>
+        </div>
+    </div>
+    <div id="projects" class="bg-darkSteel flex" style="justify-content: center; padding: 2ch;">
+        <div class="flex">
+            <img>
+            <div>
+                
+            </div>
+        </div>
+        <div>
+            <p class="fc-silver">
+                Thanks for checking my portfolio out, I am grateful for your time!
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
