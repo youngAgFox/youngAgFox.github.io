@@ -21,13 +21,13 @@
 
     /* font */
     --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --fs-800: 3.6em;
-    --fs-700: 2.8em;
-    --fs-600: 2.3em;
-    --fs-500: 2.0em;
-    --fs-400: 1.6em;
-    --fs-300: 1.2em;
-    --fs-200: 1.0em;
+    --fs-800: calc(3.0em + 1vw);
+    --fs-700: calc(2.0em + 1vw);
+    --fs-600: calc(1.5em + 1vw);
+    --fs-500: calc(1.2em + 1vw);
+    --fs-400: calc(1.0em + 1vw);
+    --fs-300: calc(0.7em + 1vw);
+    --fs-200: calc(0.3em + 1vw);
 }
 
 /* reset */
@@ -38,7 +38,7 @@
 }
 
 body {
-    width: 100vw;
+    width: 100%;
     overflow-x: hidden;
 }
 
