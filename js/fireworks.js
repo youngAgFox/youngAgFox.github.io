@@ -1,7 +1,7 @@
 const canvas = document.getElementById("fireworkCanvas");
 const canvasContainer = document.getElementById("canvas-container").getBoundingClientRect();
-canvas.width = canvasContainer.width;
-canvas.height = canvasContainer.height;
+windowResize();
+window.addEventListener("resize", windowResize);
 
 const c = canvas.getContext("2d");
 const target = document.getElementById("fireworkTarget");
@@ -162,4 +162,9 @@ function update(time) {
     if (fireworks.length > 0)
         window.requestAnimationFrame(update);
     else c.clearRect(0,0, canvas.width, canvas.height); // clear last artifacts
+}
+
+function windowResize() {
+    canvas.width = canvasContainer.width; 
+    canvas.height = canvasContainer.height;
 }
