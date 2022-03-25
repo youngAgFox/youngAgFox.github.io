@@ -131,11 +131,10 @@ function randFirework() {
     const maxVY = -3;
     const maxVX = 5;
     const offset = 6;
-    const m = {x: canvas.width/2, y: canvas.height};
     const vy = Math.max(Math.random(), 0.001) * maxVY - offset;
     const vxSign = (Math.random() >= 0.5 ? 1 : -1);
     const vx = Math.random() * maxVX * vxSign;
-    return new Firework(m.x, m.y, vx, vy, randomElement(colors));
+    return new Firework(canvas.width/2, canvas.height, vx, vy, randomElement(colors));
 }
 
 function randomElement(list) {
