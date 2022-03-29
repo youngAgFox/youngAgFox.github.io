@@ -1,8 +1,6 @@
 const colors = ["red", "green", "blue", "violet", "orange", "yellow", "magenta"];
 const fireworkRadius = 2;
 
-let mx, my;
-
 /**  @type {HTMLCanvasElement} */
 const canvas = document.getElementById("fireworkCanvas");
 const canvasContainer = document.getElementById("canvas-container");
@@ -25,12 +23,18 @@ let fireworks = [];
 let anyDied = false;
 const explosionTicks = 60 * 4.5;
 
-window.addEventListener("mousemove", mouseUpdate);
+window.addEventListener("mousedown", mouseUpdate);
 
 /** @param {MouseEvent} e */
 function mouseUpdate(e) {
-    mx = e.offsetX;
-    my = e.offsetY;
+    const rect = canvas.getBoundingClientRect();
+    console.log("click");
+    if (e.clientY < rect.bottom && e.clientY > rect.top) {
+        console.log("on canvas");
+        const tx = e.clientX - rect.left;
+        const ty = e.clientY - rect.top;
+        genExplosions(tx, ty, randomElement(colors));
+    }
 }
 class Explosion {
     constructor(x, y, vx, vy, color) {
@@ -114,16 +118,20 @@ class Firework {
         if (Math.sqrt((this.x - this.ox) ** 2 + (this.y - this.oy) ** 2) > this.arcHeight) {
             this.isAlive = false;
             anyDied = true;
-            let e;
-            let rx;
-            let ry;
-            for (let i = 0; i < 100; i++) {
-                rx = Math.random() * 2 * (Math.random() >= 0.5 ? 1 : -1);
-                ry = Math.random() * 2 * (Math.random() >= 0.5 ? 1 : -1);
-                e = new Explosion(this.x, this.y, rx, ry, this.color);
-                fireworks.push(e);
-            }
+            genExplosions(this.x, this.y, this.color);
         }
+    }
+}
+
+function genExplosions(x, y, color) {
+    let e;
+    let rx;
+    let ry;
+    for (let i = 0; i < 100; i++) {
+        rx = Math.random() * 2 * (Math.random() >= 0.5 ? 1 : -1);
+        ry = Math.random() * 2 * (Math.random() >= 0.5 ? 1 : -1);
+        e = new Explosion(x, y, rx, ry, color);
+        fireworks.push(e);
     }
 }
 
@@ -178,10 +186,6 @@ function update(time) {
         fireworks = fireworks.filter(f => f.isAlive);
         anyDied = false;
     }
-
-    console.log(mx, my);
-    c.fillStyle = "white";
-    c.fillText("Click to shoot!", mx, my, 100);
 
     window.requestAnimationFrame(update);
 }
