@@ -28,12 +28,14 @@ window.addEventListener("touchstart", mouseUpdate);
 
 /** @param {MouseEvent} e */
 function mouseUpdate(e) {
+    const cx = e.clientX || e.touches[0].clientX;
+    const cy = e.clientY || e.touches[0].clientY;
     const rect = canvas.getBoundingClientRect();
     console.log("click");
-    if (e.clientY < rect.bottom && e.clientY > rect.top) {
+    if (cy < rect.bottom && cy > rect.top) {
         console.log("on canvas");
-        const tx = e.clientX - rect.left;
-        const ty = e.clientY - rect.top;
+        const tx = cx - rect.left;
+        const ty = cy - rect.top;
         genExplosions(tx, ty, randomElement(colors));
     }
 }
