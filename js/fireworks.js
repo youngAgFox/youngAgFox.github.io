@@ -1,16 +1,36 @@
-const canvas = document.getElementById("fireworkCanvas");
-const canvasContainer = document.getElementById("canvas-container").getBoundingClientRect();
-canvas.width = canvasContainer.width; 
-canvas.height = canvasContainer.height;
+const colors = ["red", "green", "blue", "violet", "orange", "yellow", "magenta"];
+const fireworkRadius = 2;
 
+let mx, my;
+
+/**  @type {HTMLCanvasElement} */
+const canvas = document.getElementById("fireworkCanvas");
+const canvasContainer = document.getElementById("canvas-container");
+window.addEventListener("resize", canvasUpdate);
+canvasUpdate();
+
+function canvasUpdate() {
+    const rect = canvasContainer.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+}
+
+/** @type {CanvasRenderingContext2D} */
 const c = canvas.getContext("2d");
 const target = document.getElementById("fireworkTarget");
 let isInView = false;
 document.addEventListener("scroll", scrollCheck);
 let fireworks = [];
 let anyDied = false;
-const explosionTicks = 60*4.5;
+const explosionTicks = 60 * 4.5;
 
+window.addEventListener("mousemove", mouseUpdate);
+
+/** @param {MouseEvent} e */
+function mouseUpdate(e) {
+    mx = e.offsetX;
+    my = e.offsetY;
+}
 class Explosion {
     constructor(x, y, vx, vy, color) {
         this.x = x;
@@ -28,7 +48,7 @@ class Explosion {
         c.globalAlpha = this.ticks / explosionTicks;
         c.fillStyle = this.color;
         c.beginPath();
-        c.arc(this.x, this.y, this.radius, Math.PI*2, 0, 0);
+        c.arc(this.x, this.y, this.radius, Math.PI * 2, 0, 0);
         c.closePath();
         c.fill();
         c.restore();
@@ -37,7 +57,7 @@ class Explosion {
     tick() {
         this.x += this.vx;
         this.y += this.vy;
-        this.vy -= (-0.0098* ((explosionTicks - this.ticks)/60)**2);
+        this.vy -= (-0.0098 * ((explosionTicks - this.ticks) / 60) ** 2);
 
         // kill if out of canvas
         if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
@@ -55,7 +75,7 @@ class Explosion {
 }
 
 class Firework {
-    constructor(x, y, vx, vy, color="red") {
+    constructor(x, y, vx, vy, color = "red") {
         this.ox = x;
         this.oy = y;
         this.x = x;
@@ -73,7 +93,7 @@ class Firework {
         c.fillStyle = this.color;
         c.strokeStyle = "black";
         c.beginPath();
-        c.arc(this.x, this.y, this.radius, Math.PI*2, 0, 0);
+        c.arc(this.x, this.y, this.radius, Math.PI * 2, 0, 0);
         c.closePath();
         c.stroke();
         c.fill();
@@ -90,7 +110,7 @@ class Firework {
             anyDied = true;
         }
         // explode if out of bounding arc
-        if (Math.sqrt((this.x - this.ox)**2 + (this.y - this.oy)**2) > this.arcHeight) {
+        if (Math.sqrt((this.x - this.ox) ** 2 + (this.y - this.oy) ** 2) > this.arcHeight) {
             this.isAlive = false;
             anyDied = true;
             let e;
@@ -127,14 +147,13 @@ function inView(e) {
 }
 
 function randFirework() {
-    const colors = ["red", "green", "blue", "violet", "orange", "yellow", "magenta"];
-    const maxVY = -3;
-    const maxVX = 5;
-    const offset = 6;
-    const vy = Math.max(Math.random(), 0.001) * maxVY - offset;
+    const maxVX = window.innerWidth / 2 / (fireworkRadius * 60);
+    const maxVY = -1 * window.innerHeight / (fireworkRadius * 60); 
+    console.log(maxVX, maxVY);
+    const vy = (Math.random() + 1) * maxVY;
     const vxSign = (Math.random() >= 0.5 ? 1 : -1);
     const vx = Math.random() * maxVX * vxSign;
-    return new Firework(canvas.width/2, canvas.height, vx, vy, randomElement(colors));
+    return new Firework(canvas.width / 2, canvas.height, vx, vy, randomElement(colors));
 }
 
 function randomElement(list) {
@@ -146,11 +165,11 @@ function randomElement(list) {
 let lastTime;
 function update(time) {
     if (lastTime === undefined) lastTime = time;
-    else if (time - lastTime < 1000*0.16) {
+    else if (time - lastTime < 1000 * 0.16) {
         window.requestAnimationFrame(update);
         return;
     }
-    c.clearRect(0,0,canvas.width, canvas.height);
+    c.clearRect(0, 0, canvas.width, canvas.height);
     for (let f of fireworks) {
         f.tick();
         f.draw();
@@ -159,7 +178,11 @@ function update(time) {
         fireworks = fireworks.filter(f => f.isAlive);
         anyDied = false;
     }
+
+    c.fillStyle = "white";
+    c.fillText("Click to shoot!", mx, my, 100);
+
     if (fireworks.length > 0)
         window.requestAnimationFrame(update);
-    else c.clearRect(0,0, canvas.width, canvas.height); // clear last artifacts
+    else c.clearRect(0, 0, canvas.width, canvas.height); // clear last artifacts
 }
