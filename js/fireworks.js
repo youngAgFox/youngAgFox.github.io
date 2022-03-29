@@ -74,7 +74,7 @@ class Explosion {
             anyDied = true;
         }
 
-        this.ticks--;
+        this.ticks -= Math.max(Math.round(ds), 1);
         if (this.ticks <= 0) {
             this.isAlive = false;
             anyDied = true;
@@ -128,13 +128,21 @@ class Firework {
     }
 }
 
+function getMaxVX() {
+    return window.innerWidth / 2 / (fireworkRadius * 60);
+}
+
+function getMaxVY() {
+    return -1 * window.innerHeight / (fireworkRadius * 60); 
+}
+
 function genExplosions(x, y, color) {
     let e;
     let rx;
     let ry;
     for (let i = 0; i < 100; i++) {
-        rx = Math.random() * 2 * (Math.random() >= 0.5 ? 1 : -1);
-        ry = Math.random() * 2 * (Math.random() >= 0.5 ? 1 : -1);
+        rx = Math.random() * (getMaxVX() * 0.25) * (Math.random() >= 0.5 ? 1 : -1);
+        ry = Math.random() * (getMaxVY() * 0.25) * (Math.random() >= 0.5 ? 1 : -1);
         e = new Explosion(x, y, rx, ry, color);
         fireworks.push(e);
     }
@@ -160,8 +168,8 @@ function inView(e) {
 }
 
 function randFirework() {
-    const maxVX = window.innerWidth / 2 / (fireworkRadius * 60);
-    const maxVY = -1 * window.innerHeight / (fireworkRadius * 60); 
+    const maxVX = getMaxVX();
+    const maxVY = getMaxVY();
     console.log(maxVX, maxVY);
     const vy = (Math.random() + 1) * maxVY;
     const vxSign = (Math.random() >= 0.5 ? 1 : -1);
