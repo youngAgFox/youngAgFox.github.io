@@ -61,9 +61,10 @@ class Explosion {
     }
 
     tick(delta) {
-        this.x += this.vx * (delta/8.3);
-        this.y += this.vy * (delta/8.3);
-        this.vy -= (-0.0098 * ((explosionTicks - this.ticks) / 60) ** 2);
+        const ds = (delta/8.3);
+        this.x += this.vx * ds;
+        this.y += this.vy * ds;
+        this.vy -= (-0.0098 * ((explosionTicks - this.ticks) / 60) ** 2) * ds;
 
         // kill if out of canvas
         if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
@@ -107,9 +108,9 @@ class Firework {
     }
 
     tick(delta) {
-        console.log(delta/8.3);
-        this.x += this.vx * (delta/8.3);
-        this.y += this.vy * (delta/8.3);
+        const ds = delta/8.3;
+        this.x += this.vx * ds;
+        this.y += this.vy * ds;
 
         // kill if out of canvas
         if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
