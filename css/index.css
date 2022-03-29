@@ -188,6 +188,6 @@ h4 {font-size: var(--fs-300);}
 }
 
 /* debugging */
-canvas {
+/* canvas {
     border: 2px solid pink;
-}
+} */

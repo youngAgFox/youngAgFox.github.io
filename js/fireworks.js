@@ -8,6 +8,7 @@ const canvas = document.getElementById("fireworkCanvas");
 const canvasContainer = document.getElementById("canvas-container");
 window.addEventListener("resize", canvasUpdate);
 canvasUpdate();
+window.requestAnimationFrame(update);
 
 function canvasUpdate() {
     const rect = canvasContainer.getBoundingClientRect();
@@ -136,7 +137,6 @@ function scrollCheck() {
             let f = randFirework();
             fireworks.push(f);
         }
-        window.requestAnimationFrame(update);
         isInView = true;
     }
 }
@@ -179,10 +179,9 @@ function update(time) {
         anyDied = false;
     }
 
+    console.log(mx, my);
     c.fillStyle = "white";
     c.fillText("Click to shoot!", mx, my, 100);
 
-    if (fireworks.length > 0)
-        window.requestAnimationFrame(update);
-    else c.clearRect(0, 0, canvas.width, canvas.height); // clear last artifacts
+    window.requestAnimationFrame(update);
 }
