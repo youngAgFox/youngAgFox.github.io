@@ -59,9 +59,9 @@ class Explosion {
         c.restore();
     }
 
-    tick() {
-        this.x += this.vx;
-        this.y += this.vy;
+    tick(delta) {
+        this.x += this.vx * (delta/8.3);
+        this.y += this.vy * (delta/8.3);
         this.vy -= (-0.0098 * ((explosionTicks - this.ticks) / 60) ** 2);
 
         // kill if out of canvas
@@ -105,9 +105,10 @@ class Firework {
         c.restore();
     }
 
-    tick() {
-        this.x += this.vx;
-        this.y += this.vy;
+    tick(delta) {
+        console.log(delta/8.3);
+        this.x += this.vx * (delta/8.3);
+        this.y += this.vy * (delta/8.3);
 
         // kill if out of canvas
         if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
@@ -173,13 +174,9 @@ function randomElement(list) {
 let lastTime;
 function update(time) {
     if (lastTime === undefined) lastTime = time;
-    else if (time - lastTime < 1000 * 0.16) {
-        window.requestAnimationFrame(update);
-        return;
-    }
     c.clearRect(0, 0, canvas.width, canvas.height);
     for (let f of fireworks) {
-        f.tick();
+        f.tick(time - lastTime);
         f.draw();
     }
     if (anyDied) {
@@ -187,5 +184,6 @@ function update(time) {
         anyDied = false;
     }
 
+    lastTime = time;
     window.requestAnimationFrame(update);
 }
