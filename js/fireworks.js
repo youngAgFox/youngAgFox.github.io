@@ -24,6 +24,7 @@ let anyDied = false;
 const explosionTicks = 60 * 4.5;
 
 window.addEventListener("mousedown", mouseUpdate);
+window.addEventListener("touchstart", mouseUpdate);
 
 /** @param {MouseEvent} e */
 function mouseUpdate(e) {
