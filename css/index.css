@@ -97,6 +97,25 @@ h4 {font-size: var(--fs-300);}
     }
 }
 
+.point-vert {
+    display: block;
+    backface-visibility: hidden;
+    animation-name: point-vert-animation;
+    animation-duration:  1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes point-vert-animation {
+    from {
+        transform: translateY(-10px);
+    }
+    to {
+        transform: translateY(30px);
+    }
+}
+
+
 .slideIn-down {
     position: relative;
     animation-name: slideIn-down;
@@ -228,6 +247,25 @@ h4 {font-size: var(--fs-300);}
     animation: greyScale-transition;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+}
+
+.project {
+    position: relative;
+    display: flex;
+    padding: 1ch 2ch;
+}
+
+.project video, .project img {
+    opacity: 40%;
+    box-shadow: 2px 2px 8px 2px hsl(var(--clr-steelBlue));
+}
+
+.project video:hover, .project img:hover {
+    opacity: 100%;
+}
+
+.project .opaque {
+    opacity: 100%;
 }
 
 /* debugging */
