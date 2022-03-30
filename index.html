@@ -11,9 +11,9 @@
 
 <body>
     <!-- header -->
-    <div class="bg-body" style="height: 100vh; max-height: 100vh; overflow: hidden;">
-        <div class="flex" style="border-bottom: 8px outset hsl(var(--ac-header)); flex-wrap: wrap; overflow: hidden; max-height: 100%;">
-            <div class="bg-header flex-column" style="padding: 1cm 6ch; gap: 2ch; flex-shrink: 1;">
+    <div class="bg-body" style="min-height: 100vh; overflow: hidden;">
+        <div class="flex" style="border-bottom: 8px outset hsl(var(--ac-header)); flex-wrap: wrap; overflow: hidden;">
+            <div class="bg-header flex-column" style="padding: 1cm 6ch; gap: 2ch; flex: 0.5; max-height: 800px;">
                 <h1>
                     Hey I'm AJ!
                 </h1>
@@ -23,7 +23,7 @@
                     style="max-height: 260px; border: 4px dashed hsl(var(--clr-silver)); align-self: center; border-radius: 42px;">
             </div>
             <div class="bg-steel slideIn-left fs-400"
-                style="padding: 1cm 4ch; border-left: 8px solid hsl(var(--ac-header)); flex: 1;">
+                style="padding: 1cm 4ch; border-left: 8px solid hsl(var(--ac-header)); flex: 1; min-width: 500px;">
 
                 <p class="fc-white" style="margin-top: 2ch;">
                     I am a problem solver with a cool head - and a cool head of hair that has been growing
@@ -61,6 +61,7 @@
             <!-- firework target -->
             <h1 id="fireworkTarget" class="fc-steelBlue" style="z-index: 10; position: absolute; top: 45%; width: 80%; margin: 0 10%; text-align: center;">
                 Portfolio Projects 2022
+                <br><span class="fs-200">Try clicking around here!</span>
             </h1>
     </div>
     <div id="projects" class="bg-darkSteel flex" style="justify-content: center; padding: 2ch;">
