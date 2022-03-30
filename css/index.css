@@ -28,6 +28,7 @@
     --fs-400: calc(1.0em + 1vw);
     --fs-300: calc(0.7em + 1vw);
     --fs-200: calc(0.3em + 1vw);
+    --fs-100: calc(0.1em + 0.5vw);
 }
 
 /* reset */
@@ -158,6 +159,7 @@ h4 {font-size: var(--fs-300);}
 .fs-400 {font-size: var(--fs-400);}
 .fs-300 {font-size: var(--fs-300);}
 .fs-200 {font-size: var(--fs-200);}
+.fs-100 {font-size: var(--fs-100);}
 
 /* Text decor */
 .underline {text-decoration: underline;}
