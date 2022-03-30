@@ -128,6 +128,10 @@ class Firework {
     }
 }
 
+function getMinV() {
+    return Math.min(getMaxVX(), getMaxVY());
+}
+
 function getMaxVX() {
     return window.innerWidth / 2 / (fireworkRadius * 60);
 }
@@ -137,12 +141,24 @@ function getMaxVY() {
 }
 
 function genExplosions(x, y, color) {
+    const maxV = getMinV();
+    // This reduction algorithm attempts to create a circular
+    // effect by reducing the "corners" of the random dist
+    // of particles
+    const reduceAmount = 0.65;
+    const reduceThreshold = ((maxV*0.25)**2 + (maxV*0.25)**2) * 0.55;
     let e;
     let rx;
     let ry;
+
     for (let i = 0; i < 100; i++) {
-        rx = Math.random() * (getMaxVX() * 0.25) * (Math.random() >= 0.5 ? 1 : -1);
-        ry = Math.random() * (getMaxVY() * 0.25) * (Math.random() >= 0.5 ? 1 : -1);
+        rx = Math.random() * (maxV * 0.25) * (Math.random() >= 0.5 ? 1 : -1);
+        ry = Math.random() * (maxV * 0.25) * (Math.random() >= 0.5 ? 1 : -1);
+        if (rx**2 + ry**2 > reduceThreshold) {
+            rx *= reduceAmount;
+            ry *= reduceAmount;
+            console.log(rx, ry);
+        }
         e = new Explosion(x, y, rx, ry, color);
         fireworks.push(e);
     }
