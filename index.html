@@ -10,33 +10,49 @@
 </head>
 
 <body>
+    <div class="bg-darkSteel fc-white fs-400" style="min-height: 2cm; padding: 0 2ch; position: sticky; top: 0; z-index: 1000;">
+    </div>
     <!-- header -->
     <div class="bg-body" style="min-height: 100vh; overflow: hidden;">
         <div class="flex" style="border-bottom: 8px outset hsl(var(--ac-header)); flex-wrap: wrap; overflow: hidden;">
-            <div class="bg-header flex-column" style="padding: 1cm 6ch; gap: 2ch; flex: 0.5; max-height: 800px;">
-                <h1>
-                    Hey I'm AJ!
+            <div class="bg-header flex-column" style="padding: 1cm 6ch; gap: 2ch; flex: 0.5; max-height: 800px; align-items: center;">
+                <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;">
+                    Hey there, I'm AJ!
                 </h1>
-                <img src="./res/images/work_pic.jpg"
+                <div class="popup">
+                <img id="me"
+                    onmousedown="meMouseDown()"
+                    src="./res/images/work_pic.jpg"
                     alt="A dashing picture of AJ in front of a color splashed canvas of contrasting snowy trees."
-                    class="greyScale-transition"
-                    style="max-height: 260px; border: 4px dashed hsl(var(--clr-silver)); align-self: center; border-radius: 42px;">
+                    class="popup"
+                    style="max-height: 260px; border: 4px dashed hsl(var(--clr-silver)); align-self: center; border-radius: 42px; filter: grayscale(30%)"
+                >
+                <div id="mePopup" class="popuptext">
+                    When my first silver hair popped up is hotly debated, but before 7 is certain. <br><br>I have never dyed it.
+                </div>
+                <p class="fs-100" style="text-align: center; font-size: 0.8em;">
+                    ^ Click for more info!
+                </p>
+                </div>
+                <script>
+                    function meMouseDown() {
+                        const popup = document.getElementById("mePopup");
+                        popup.classList.toggle("show");
+                    }
+                </script>
             </div>
             <div class="bg-steel slideIn-left fs-400"
                 style="padding: 1cm 4ch; border-left: 8px solid hsl(var(--ac-header)); flex: 1; min-width: 500px;">
 
                 <p class="fc-white" style="margin-top: 2ch;">
-                    I am a problem solver with a cool head - and a cool head of hair that has been growing
-                    steadily more silver since I was a young kid.
+                    I am a calm problem solver who will never stop learning or improving.
                     <br><br>
                     <span class="slideIn-left" style="left: 140%; animation-delay: 4s;">
-                        Working inside and outside of the classroom, driven by my passion
-                        to understand and accomplish more with my knowledge I have improved my skills in preparation
-                        for when I have the opportunity to put them to use.
+                        Each bug is simply another challenge, another puzzle, another lesson.
                     </span>
                     <br><br>
-                    <span class="fadeIn" style="animation-delay: 7s;">
-                        Here is what I have been up to.
+                    <span class="slideIn-left" style="left: 140%; animation-delay: 7s;">
+                        And I am forever unsatisfied.
                     </span>
                 </p>
             </div>
@@ -61,7 +77,7 @@
             <!-- firework target -->
             <h1 id="fireworkTarget" class="fc-steelBlue" style="z-index: 10; position: absolute; top: 45%; width: 80%; margin: 0 10%; text-align: center;">
                 Portfolio Projects 2022
-                <br><span class="fs-200">Try clicking around here!</span>
+                <br><span class="fs-200 fc-silver" style="font-weight: lighter;">Try clicking around here!</span>
             </h1>
     </div>
     <div id="projects" class="bg-darkSteel flex" style="justify-content: center; padding: 2ch;">
