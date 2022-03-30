@@ -31,9 +31,7 @@ function mouseUpdate(e) {
     const cx = e.clientX || e.touches[0].clientX;
     const cy = e.clientY || e.touches[0].clientY;
     const rect = canvas.getBoundingClientRect();
-    console.log("click");
     if (cy < rect.bottom && cy > rect.top) {
-        console.log("on canvas");
         const tx = cx - rect.left;
         const ty = cy - rect.top;
         genExplosions(tx, ty, randomElement(colors));
@@ -157,7 +155,6 @@ function genExplosions(x, y, color) {
         if (rx**2 + ry**2 > reduceThreshold) {
             rx *= reduceAmount;
             ry *= reduceAmount;
-            console.log(rx, ry);
         }
         e = new Explosion(x, y, rx, ry, color);
         fireworks.push(e);
@@ -186,7 +183,6 @@ function inView(e) {
 function randFirework() {
     const maxVX = getMaxVX();
     const maxVY = getMaxVY();
-    console.log(maxVX, maxVY);
     const vy = (Math.random() + 1) * maxVY;
     const vxSign = (Math.random() >= 0.5 ? 1 : -1);
     const vx = Math.random() * maxVX * vxSign;
