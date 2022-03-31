@@ -19,7 +19,7 @@
     <div class="bg-body" style="min-height: 100vh; overflow: hidden;">
         <div class="flex" style="border-bottom: 8px outset hsl(var(--ac-header)); flex-wrap: wrap; overflow: hidden;">
             <div class="bg-header flex-column"
-                style="padding: 1cm 6ch; gap: 2ch; flex: 0.5; max-height: 800px; align-items: center;">
+                style="padding: 1cm 6ch; gap: 2ch; max-height: 800px; align-items: center; flex: 0.45;">
                 <h1
                     style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;">
                     Hey there, I'm AJ!
@@ -72,11 +72,16 @@
         <canvas id="fireworkCanvas"></canvas>
         <!-- firework target -->
         <h1 id="fireworkTarget" class="fc-steelBlue"
-            style="z-index: 10; position: absolute; top: 45%; width: 80%; margin: 0 10%; text-align: center;">
+            style="z-index: 10; position: absolute; top: 45%; width: 80%; margin: 0 10%; text-align: center; user-select: none;">
             Portfolio Projects 2022
-            <br><span class="fs-100 fc-silver" style="font-weight: lighter;">Try clicking around here!</span>
+            <br><span class="fs-100 fc-silver" style="font-weight: lighter; user-select: none;">
+                Try clicking around here!
+            </span>
         </h1>
     </div>
+    <h4 class="bg-darkSteel fc-steel" style="padding: 2ch; width: 100%; text-align: center; padding-bottom: 4ch;">
+        Click the project description box for more info, images link to the source.
+    </h4>
     <div id="projects" class="bg-darkSteel fc-silver flex-column"
         style="justify-content: space-around; align-items: center; padding: 2ch; gap: 140px;">
         <div class="project">
