@@ -1,4 +1,6 @@
 :root {
+    --lg-popup-height: 450px;
+    --lg-popup-width: 500px;
     /* colors */
     --clr-goldenBrown: 53 95% 66%;
     --clr-whiteBlue: 186 5% 96%;
@@ -219,29 +221,6 @@ h4 {font-size: var(--fs-300);}
     box-shadow: 1px 1px 6px hsl(var(--clr-lightBlue));
 }
 
-/* Popup container */
-.popup , .popup-above{
-  position: relative;
-  cursor: pointer;
-}
-
-.popup .popuptext, .popup-above .popuptext {
-  background-color: hsl(var(--clr-medSteel));
-  border-radius: 6px;
-  padding: 1ch 0.5ch;
-  position: absolute;
-  z-index: 1;
-  visibility: hidden;
-}
-
-.popup-above .popuptext {
-  height: 80%;
-  width: 360px;
-  left: calc(50% - 180px);
-  top: -90%;
-}
-
-/* The actual popup (appears on top) */
 .popup .popuptext {
   width: 160px;
   left: 105%;
@@ -262,11 +241,38 @@ h4 {font-size: var(--fs-300);}
   border-color: hsl(var(--clr-medSteel)) transparent transparent transparent;
 }
 
+
+/* Popup container */
+.popup, .popup-above{
+  position: relative;
+  cursor: pointer;
+}
+
+.popup .popuptext, .popup-above .popuptext {
+  color: hsl(var(--clr-whiteBlue));
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(var(--clr-medSteel));
+  border-radius: 6px;
+  padding: 1ch;
+  position: absolute;
+  z-index: 1;
+  visibility: hidden;
+}
+
+.popup-above .popuptext {
+  height: var(--lg-popup-height);
+  width: var(--lg-popup-width);
+  left: calc(50% - var(--lg-popup-width) / 2);
+  top: calc(-1 * var(--lg-popup-height) - 30px);
+}
+
 .popup-above .popuptext::after {
   content: "";
   position: absolute;
   transform: scale3d(4.0, 4.0, 1);
-  top: 105%;
+  top: calc(var(--lg-popup-height) + 10px);
   left: calc(50% - 5px);
   margin-left: -5px;
   border-width: 5px;
@@ -276,8 +282,8 @@ h4 {font-size: var(--fs-300);}
 }
 
 .popuptext h1 {
-    font-size: var(--fs-200);
-    margin: 8px 0;
+    font-size: var(--fs-100);
+    margin-top: 2ch;
     color: hsl(var(--clr-steelBlue));
 }
 
@@ -306,11 +312,14 @@ h4 {font-size: var(--fs-300);}
     justify-content: center;
     align-self: stretch;
     text-align: center;
+    flex-wrap: wrap;
     gap: 2vw;
     /* border: 2px solid pink; */
 }
 
 .project button {
+    min-width: 400px;
+    min-height: 360px;
     display: flex;
     flex-direction: column;
     max-width: 40%;
