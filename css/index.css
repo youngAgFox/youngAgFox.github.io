@@ -1,6 +1,4 @@
 :root {
-    --lg-popup-height: 450px;
-    --lg-popup-width: 500px;
     /* colors */
     --clr-goldenBrown: 53 95% 66%;
     --clr-whiteBlue: 186 5% 96%;
@@ -215,88 +213,6 @@ h4 {font-size: var(--fs-300);}
     height: 5%;
     width: 100%;
     background: linear-gradient(hsl(var(--clr-lightSilver)), hsl(var(--clr-darkSteel)));
-}
-
-.popup:hover, .popup-above:hover {
-    box-shadow: 1px 1px 6px hsl(var(--clr-lightBlue));
-}
-
-.popup .popuptext {
-  width: 160px;
-  left: 105%;
-  top: 30%;
-}
-
-/* Left popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  transform: rotateZ(90deg);
-  top: calc(50% - 5px);
-  left: -5px;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  z-index: 5;
-  border-color: hsl(var(--clr-medSteel)) transparent transparent transparent;
-}
-
-
-/* Popup container */
-.popup, .popup-above{
-  position: relative;
-  cursor: pointer;
-}
-
-.popup .popuptext, .popup-above .popuptext {
-  color: hsl(var(--clr-whiteBlue));
-  justify-content: space-around;
-  display: flex;
-  flex-direction: column;
-  background-color: hsl(var(--clr-medSteel));
-  border-radius: 6px;
-  padding: 1ch;
-  position: absolute;
-  z-index: 1;
-  visibility: hidden;
-}
-
-.popup-above .popuptext {
-  height: var(--lg-popup-height);
-  width: var(--lg-popup-width);
-  left: calc(50% - var(--lg-popup-width) / 2);
-  top: calc(-1 * var(--lg-popup-height) - 30px);
-}
-
-.popup-above .popuptext::after {
-  content: "";
-  position: absolute;
-  transform: scale3d(4.0, 4.0, 1);
-  top: calc(var(--lg-popup-height) + 10px);
-  left: calc(50% - 5px);
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  z-index: 5;
-  border-color: hsl(var(--clr-medSteel)) transparent transparent transparent;
-}
-
-.popuptext h1 {
-    font-size: var(--fs-100);
-    margin-top: 2ch;
-    color: hsl(var(--clr-steelBlue));
-}
-
-.popuptext p {
-    font-size: var(--fs-100);
-}
-
-/* Toggle this class when clicking on the popup container (hide and show the popup) */
-.popup .show, .popup-above .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-  animation-fill-mode: forwards;
 }
 
 #me:hover {
