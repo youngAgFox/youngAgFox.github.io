@@ -5,41 +5,37 @@
     <title>Anthony Segedi</title>
     <link rel="stylesheet" href="./css/index.css">
     <script src="./js/fireworks.js" defer></script>
+    <script src="./js/videoOpacity.js" defer></script>
+    <script src="./js/popup.js" defer></script>
     <!-- Added so that mobile will give correct width :| -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 
 <body>
-    <div class="bg-darkSteel fc-white fs-400" style="min-height: 2cm; padding: 0 2ch; position: sticky; top: 0; z-index: 1000;">
+    <div class="bg-darkSteel fc-white fs-400"
+        style="min-height: 2cm; padding: 0 2ch; position: sticky; top: 0; z-index: 1000;">
     </div>
     <!-- header -->
     <div class="bg-body" style="min-height: 100vh; overflow: hidden;">
         <div class="flex" style="border-bottom: 8px outset hsl(var(--ac-header)); flex-wrap: wrap; overflow: hidden;">
-            <div class="bg-header flex-column" style="padding: 1cm 6ch; gap: 2ch; flex: 0.5; max-height: 800px; align-items: center;">
-                <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;">
+            <div class="bg-header flex-column"
+                style="padding: 1cm 6ch; gap: 2ch; flex: 0.5; max-height: 800px; align-items: center;">
+                <h1
+                    style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;">
                     Hey there, I'm AJ!
                 </h1>
-                <div class="popup">
-                <img id="me"
-                    onmousedown="meMouseDown()"
-                    src="./res/images/work_pic.jpg"
-                    alt="A dashing picture of AJ in front of a color splashed canvas of contrasting snowy trees."
-                    class="popup"
-                    style="max-height: 260px; border: 4px dashed hsl(var(--clr-silver)); align-self: center; border-radius: 42px; filter: grayscale(30%)"
-                >
-                <div id="mePopup" class="popuptext">
-                    When my first silver hair popped up is hotly debated, but before 7 is certain. <br><br>I have never dyed it.
-                </div>
-                <p class="fs-100" style="text-align: center; font-size: 0.8em;">
-                    ^ Click for more info!
-                </p>
-                </div>
-                <script>
-                    function meMouseDown() {
-                        const popup = document.getElementById("mePopup");
-                        popup.classList.toggle("show");
-                    }
-                </script>
+                <button class="popup" style="border-radius: 42px;">
+                    <img id="me" src="./res/images/work_pic.jpg"
+                        alt="A dashing picture of AJ in front of a color splashed canvas of contrasting snowy trees."
+                        style="max-height: 260px; border: 4px dashed hsl(var(--clr-silver)); align-self: center; border-radius: 42px; filter: grayscale(30%)">
+                    <div class="popuptext fc-silver">
+                        When my first silver hair popped up is hotly debated, but before 7 is certain. <br><br>I have
+                        never dyed it.
+                    </div>
+                    <p class="fs-100" style="text-align: center; font-size: 0.8em;">
+                        ^ Click for more info!
+                    </p>
+                </button>
             </div>
             <div class="bg-steel slideIn-left fs-400"
                 style="padding: 1cm 4ch; border-left: 8px solid hsl(var(--ac-header)); flex: 1; min-width: 500px;">
@@ -57,14 +53,14 @@
                 </p>
             </div>
         </div>
-        <div class="fadeIn flex-column" style="animation-delay: 8.5s; position: relative; align-items: center;">
+        <div class="fadeIn flex-column" style="animation-delay: 8.5s; align-items: center; position: relative;">
             <p class="fs-400" style="margin: 1rem;">
                 Check it out below!
             </p>
             <img src="./res/images/continue-arrow.svg" alt="arrow pointing down" height="60px"
-            style="margin-bottom: 0;"/>
+                style="position: absolute; top: 100%; animation-delay: 8.5s;" class="point-vert" />
             <img src="./res/images/continue-arrow-sb.svg" alt="arrow pointing down" height="80px"
-            style="margin-top: -40px;"/>
+                style="position: absolute; top: 112%; animation-delay: 8.5s;" class="point-vert" />
         </div>
 
     </div>
@@ -74,22 +70,36 @@
         style="background: hsl(var(--clr-darkSteel)); position: relative; z-index: -1; width: 100%; max-width: 100vw; min-height: 130vmin;">
         <!-- fireworkCanvas -->
         <canvas id="fireworkCanvas"></canvas>
-            <!-- firework target -->
-            <h1 id="fireworkTarget" class="fc-steelBlue" style="z-index: 10; position: absolute; top: 45%; width: 80%; margin: 0 10%; text-align: center;">
-                Portfolio Projects 2022
-                <br><span class="fs-100 fc-silver" style="font-weight: lighter;">Try clicking around here!</span>
-            </h1>
+        <!-- firework target -->
+        <h1 id="fireworkTarget" class="fc-steelBlue"
+            style="z-index: 10; position: absolute; top: 45%; width: 80%; margin: 0 10%; text-align: center;">
+            Portfolio Projects 2022
+            <br><span class="fs-100 fc-silver" style="font-weight: lighter;">Try clicking around here!</span>
+        </h1>
     </div>
-    <div id="projects" class="bg-darkSteel flex" style="justify-content: center; padding: 2ch;">
-        <div class="flex">
-            <!-- <img> -->
-            <div>
-                
-            </div>
+    <div id="projects" class="bg-darkSteel fc-silver flex-column"
+        style="justify-content: center; align-items: center; padding: 2ch;">
+        <div class="project">
+            <button class="popup-above">
+                <div class="popuptext fc-white">
+                    <p class="fs-100">
+                        Test
+                    </p>
+                </div>
+                <h2 style="text-align: center;">
+                    AgChess
+                </h2>
+                <p>
+                    AgChess is my most recent rendition of chess, something I have remade four times now.
+                </p>
+            </button>
+            <video id="agchess-demo" width="600" controls="true" class=""
+                alt="A chess game with smart highlighting and board flipping" src="./res/videos/agchess-demo.mp4"
+                style="object-fit: cover;" muted="true"></video>
         </div>
         <div>
-            <p class="fc-silver">
-                Thanks for checking my portfolio out, I am grateful for your time!
+            <p class="" style="padding: 2ch;">
+                If you wish to contact me,
             </p>
         </div>
     </div>

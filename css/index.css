@@ -40,6 +40,13 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+button {
+    background-color: transparent;
+    background: none;
+    border: none;
+    color: inherit;
+}
+
 body {
     width: 100vw;
     overflow-x: hidden;
@@ -200,22 +207,34 @@ h4 {font-size: var(--fs-300);}
     background: linear-gradient(hsl(var(--clr-lightSilver)), hsl(var(--clr-darkSteel)));
 }
 
+.popup:hover, .popup-above:hover {
+    box-shadow: 1px 1px 6px hsl(var(--clr-lightBlue));
+}
+
 /* Popup container */
-.popup {
+.popup , .popup-above{
   position: relative;
   cursor: pointer;
 }
 
-/* The actual popup (appears on top) */
-.popup .popuptext {
-  visibility: hidden;
-  width: 160px;
+.popup .popuptext, .popup-above .popuptext {
   background-color: hsl(var(--clr-medSteel));
-  color: #fff;
   border-radius: 6px;
   padding: 1ch 0.5ch;
   position: absolute;
   z-index: 1;
+  visibility: hidden;
+}
+
+.popup-above .popuptext {
+  width: 360px;
+  left: calc(50% - 180px);
+  top: -80%;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  width: 160px;
   left: 105%;
   top: 30%;
 }
@@ -235,8 +254,7 @@ h4 {font-size: var(--fs-300);}
 }
 
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
-.popup .show {
-  opacity: 0;
+.popup .show, .popup-above .show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
@@ -253,22 +271,36 @@ h4 {font-size: var(--fs-300);}
     position: relative;
     display: flex;
     padding: 1ch 2ch;
+    justify-content: center;
+    align-self: stretch;
+    text-align: center;
+    gap: 2vw;
+    /* border: 2px solid pink; */
 }
 
+.project button {
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    justify-content: space-evenly;
+}
+
+/* used with the videoOpacity script */
 .project video, .project img {
     opacity: 40%;
     box-shadow: 2px 2px 8px 2px hsl(var(--clr-steelBlue));
 }
 
+/* used with the videoOpacity script */
 .project video:hover, .project img:hover {
     opacity: 100%;
 }
 
+/* used with the videoOpacity script */
 .project .opaque {
     opacity: 100%;
 }
 
-/* debugging */
-/* canvas {
-    border: 2px solid pink;
-} */
+.debug {
+    border: 2px solid green;
+}

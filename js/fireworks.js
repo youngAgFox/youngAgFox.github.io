@@ -23,13 +23,12 @@ let fireworks = [];
 let anyDied = false;
 const explosionTicks = 60 * 4.5;
 
-window.addEventListener("mousedown", mouseUpdate);
-window.addEventListener("touchstart", mouseUpdate);
+window.addEventListener("click", mouseUpdate);
 
 /** @param {MouseEvent} e */
 function mouseUpdate(e) {
-    const cx = e.clientX || e.touches[0].clientX;
-    const cy = e.clientY || e.touches[0].clientY;
+    const cx = e.clientX;
+    const cy = e.clientY;
     const rect = canvas.getBoundingClientRect();
     if (cy < rect.bottom && cy > rect.top) {
         const tx = cx - rect.left;
