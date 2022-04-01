@@ -5,7 +5,7 @@
     <title>Anthony Segedi</title>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/popup.css">
-    <script src="./js/fireworks.js" defer></script>
+    <script src="./js/fireworks.js" type="module" defer></script>
     <script src="./js/videoOpacity.js" defer></script>
     <script src="./js/popup.js" defer></script>
     <!-- Added so that mobile will give correct width :| -->
@@ -13,9 +13,9 @@
 </head>
 
 <body>
-    <div class="bg-darkSteel fc-white fs-400"
+    <!-- <div class="bg-darkSteel fc-white fs-400"
         style="min-height: 2cm; padding: 0 2ch; position: sticky; top: 0; z-index: 1000;">
-    </div>
+    </div> -->
     <!-- header -->
     <div class="bg-body" style="min-height: 100vh; overflow: hidden;">
         <div class="flex" style="border-bottom: 8px outset hsl(var(--ac-header)); flex-wrap: wrap; overflow: hidden;">
@@ -78,6 +78,10 @@
             <br><span class="fs-100 fc-silver" style="font-weight: lighter; user-select: none;">
                 Try clicking around here!
             </span>
+            <br>
+            <div id="explosion" class="fc-steelBlue fs-100" style="opacity: 25%; user-select: none; margin-top: 20px;">
+                Explosion Count
+            </div>
         </h1>
     </div>
     <h4 class="bg-darkSteel fc-steel" style="padding: 2ch; width: 100%; text-align: center; padding-bottom: 4ch;">
