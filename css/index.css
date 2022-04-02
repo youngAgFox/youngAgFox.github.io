@@ -224,12 +224,12 @@ h4 {font-size: var(--fs-300);}
 .project {
     position: relative;
     display: flex;
-    padding: 1ch 2ch;
+    padding: 4ch 2ch;
     justify-content: center;
-    align-self: stretch;
     text-align: center;
     flex-wrap: wrap;
-    gap: 2vw;
+    max-width: 80%;
+    gap: 40px;
     /* border: 2px solid pink; */
 }
 
@@ -240,6 +240,7 @@ h4 {font-size: var(--fs-300);}
     flex-direction: column;
     max-width: 40%;
     justify-content: space-evenly;
+    padding: 2ch;
 }
 
 /* used with the videoOpacity script */
