@@ -229,7 +229,6 @@ function randomWithSign() {
 function randFirework() {
     const scrR = canvas.width * 0.6 / canvas.height;
     const vx = randomWithSign() * scrR; 
-    console.log(scrR);
     return new Firework(canvas.width / 2, canvas.height, vx, -0.4 * Math.random() - 1, randomElement(colors));
 }
 
