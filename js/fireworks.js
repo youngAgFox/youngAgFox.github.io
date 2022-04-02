@@ -28,8 +28,7 @@ const c = canvas.getContext("2d");
 const target = document.getElementById("fireworkTarget");
 let isInView = false;
 document.addEventListener("scroll", scrollCheck);
-let anyDied = false;
-const explosionTicks = 60 * 4.5;
+const explosionDuration = 1; // in seconds
 
 window.addEventListener("click", mouseUpdate);
 
@@ -51,14 +50,15 @@ class Explosion {
         this.vx = vx;
         this.vy = vy;
         this.color = color;
-        this.ticks = explosionTicks;
+        this.duration = explosionDuration;
         this.isAlive = true;
         this.radius = 2;
+        this.speed = 300;
     }
 
     draw() {
         c.save();
-        c.globalAlpha = this.ticks / explosionTicks;
+        c.globalAlpha = Math.max(this.duration / explosionDuration, 0);
         c.fillStyle = this.color;
         c.beginPath();
         c.arc(this.x, this.y, this.radius, Math.PI * 2, 0);
@@ -67,27 +67,29 @@ class Explosion {
         c.restore();
     }
 
+    // want the explosion to move at x pixels per second
+    // delta is diff in ms since last update
     tick(delta) {
-        const ds = (delta/8.3);
-        this.x += this.vx * ds;
-        this.y += this.vy * ds;
-        this.vy -= (-0.0098 * ((explosionTicks - this.ticks) / 60) ** 2) * ds;
+        this.x += this.vx * this.speed * delta / 1000;
+        this.y += this.vy * this.speed * delta / 1000;
+        this.vy += ((-9.8 * delta / 1000 ) ** 2); // fall
 
         // kill if out of canvas
         if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
             this.isAlive = false;
-            anyDied = true;
         }
 
-        this.ticks -= Math.max(Math.round(ds), 1);
-        if (this.ticks <= 0) {
+        this.duration -= delta / 1000;
+        if (this.duration <= 0) {
             this.isAlive = false;
-            anyDied = true;
         }
 
     }
 }
 
+/**
+ * orientation is a value 0-1, where 0 and 1 both depict straight up
+ */
 class Firework {
     constructor(x, y, vx, vy, color = "red") {
         this.ox = x;
@@ -100,6 +102,7 @@ class Firework {
         this.isAlive = true;
         this.color = color;
         this.arcHeight = 0.80 * canvas.height; // puts it above projects title
+        this.speed = 890; // pixels/s
     }
 
     draw() {
@@ -115,34 +118,19 @@ class Firework {
     }
 
     tick(delta) {
-        const ds = delta/8.3;
-        this.x += this.vx * ds;
-        this.y += this.vy * ds;
+        this.x += this.vx * this.speed / 1000 * delta;
+        this.y += this.vy * this.speed / 1000 * delta;
 
         // kill if out of canvas
         if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
             this.isAlive = false;
-            anyDied = true;
         }
         // explode if out of bounding arc
         if (Math.sqrt((this.x - this.ox) ** 2 + (this.y - this.oy) ** 2) > this.arcHeight) {
             this.isAlive = false;
-            anyDied = true;
             genExplosions(this.x, this.y, this.color, true);
         }
     }
-}
-
-function getMinV() {
-    return Math.min(getMaxVX(), getMaxVY());
-}
-
-function getMaxVX() {
-    return window.innerWidth / 2 / (fireworkRadius * 60);
-}
-
-function getMaxVY() {
-    return -1 * window.innerHeight / (fireworkRadius * 60); 
 }
 
 const explosionDiv = document.getElementById("explosion");
@@ -156,10 +144,9 @@ const explosionDiv = document.getElementById("explosion");
  */
 function genExplosions(x, y, color, canGenerate = false) {
     explosion++;
-    const maxV = getMinV();
     // random chance to generate another explosion at the same x,y
     const doubleExplosionChance = 0.25;
-    const tripleExplosionChance = 0.05;
+    const tripleExplosionChance = 0.10;
     const recursiveExplosionChance = 0.005;
     const recursivePropagation = 0.12;
     const maxPropagations = 14;
@@ -169,44 +156,44 @@ function genExplosions(x, y, color, canGenerate = false) {
 
     if (canGenerate) {
 
-        if (isRecursive) {
+        if (isRecursive)
             recursiveExplosion++;
-        } else {
-            if (gen <= doubleExplosionChance) {
-                doubleExplosion++;
-                genExplosions(x, y, randomElement(colors));
-            } else if (gen <= tripleExplosionChance) {
-                genExplosions(x, y, randomElement(colors));
-                genExplosions(x, y, randomElement(colors));
-                tripleExplosion++;
-            }
+        else if (gen <= tripleExplosionChance) {
+            tripleExplosion++;
+            genExplosions(x, y, randomElement(colors));
+            genExplosions(x, y, randomElement(colors));
+        } else if (gen <= doubleExplosionChance) {
+            doubleExplosion++;
+            genExplosions(x, y, randomElement(colors));
         }
     }
 
     explosionDiv.innerText = `Explosions: ${explosion} Doubles: ${doubleExplosion} Triples: ${tripleExplosion}` +
         "\n" + (recursiveExplosion < 1 ? "?: 0" : `Recursives: ${recursiveExplosion}`);
 
-    // The reduction algorithm attempts to create a circular
-    // effect by reducing the "corners" of the random dist
-    // of particles
-    const reduceAmount = 0.65;
-    const reduceThreshold = ((maxV * 0.25) ** 2 + (maxV * 0.25) ** 2) * 0.55;
     let e;
-    let rx;
-    let ry;
+    let rx, ry;
+    let dx;
     let propagated = 0;
 
     for (let i = 0; i < 100; i++) {
-        rx = Math.random() * (maxV * 0.25) * (Math.random() >= 0.5 ? 1 : -1);
-        ry = Math.random() * (maxV * 0.25) * (Math.random() >= 0.5 ? 1 : -1);
-        if (rx ** 2 + ry ** 2 > reduceThreshold) {
-            rx *= reduceAmount;
-            ry *= reduceAmount;
+        rx = randomWithSign(); // -1 to 1
+        ry = randomWithSign();
+        // The reduction algorithm attempts to create a circular
+        // effect by reducing the "corners" of the random dist
+        // of particles
+        dx = rx ** 2 + ry **2;
+        if (dx > 1) {
+            rx *= 0.66 * (dx/2);
+            ry *= 0.66 * (dx/2);
         }
         e = new Explosion(x, y, rx, ry, color);
         fireworks.push(e);
         if (isRecursive && propagated < maxPropagations && Math.random() < recursivePropagation) {
-            genExplosions(x + rx * maxV * 0.3, y + ry * maxV * 0.3, randomElement(colors));
+            setTimeout(() => {
+                genExplosions(x + rx, y + ry, randomElement(colors));
+            }, Math.random() * 2000 + 500);
+
             propagated++;
         }
     }
@@ -231,13 +218,19 @@ function inView(e) {
     return r.top >= 0 && r.left >= 0 && r.bottom <= window.innerHeight && r.right <= window.innerWidth;
 }
 
+function randomSign() {
+    return Math.random() >= 0.5 ? 1 : -1;
+}
+
+function randomWithSign() {
+    return Math.random() * randomSign();
+}
+
 function randFirework() {
-    const maxVX = getMaxVX();
-    const maxVY = getMaxVY();
-    const vy = (Math.random() + 1) * maxVY;
-    const vxSign = (Math.random() >= 0.5 ? 1 : -1);
-    const vx = Math.random() * maxVX * vxSign;
-    return new Firework(canvas.width / 2, canvas.height, vx, vy, randomElement(colors));
+    const scrR = canvas.width * 0.6 / canvas.height;
+    const vx = randomWithSign() * scrR; 
+    console.log(scrR);
+    return new Firework(canvas.width / 2, canvas.height, vx, -0.4 * Math.random() - 1, randomElement(colors));
 }
 
 function randomElement(list) {
@@ -246,12 +239,10 @@ function randomElement(list) {
 }
 
 let lastTime;
-let lastPrintTime;
 function update(time) {
     if (lastTime === undefined) lastTime = time;
-    if (lastPrintTime === undefined) lastPrintTime = time;
     c.clearRect(0, 0, canvas.width, canvas.height);
-    
+
     // In place removal makes this much more efficient
     const it = fireworks.iterator();
     let f;
