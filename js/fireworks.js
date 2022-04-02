@@ -148,8 +148,8 @@ function genExplosions(x, y, color, canGenerate = false) {
     const doubleExplosionChance = 0.60;
     const tripleExplosionChance = 0.30;
     const recursiveExplosionChance = 0.10;
-    const recursivePropagation = 0.12;
-    const maxPropagations = 14;
+    const recursivePropagation = 0.15;
+    const maxPropagations = 18;
     const gen = Math.random();
     const isRecursive = canGenerate && gen <= recursiveExplosionChance;
 
