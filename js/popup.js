@@ -30,12 +30,13 @@ function configPopup(e, popup, direction) {
 
     // add popup handler
     e.addEventListener("click", adjustLocation(popup, direction, e));
+    window.addEventListener("resize", adjustLocation(popup, direction, e));
 }
 
 function adjustLocation(popup, direction, e) {
-    const width = e.offsetWidth;
-    const height = e.offsetHeight;
     return function () {
+        const width = e.offsetWidth;
+        const height = e.offsetHeight;
         let px = 0, py = 0;
         const gap = 15;
         switch (direction) {
