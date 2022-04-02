@@ -146,8 +146,8 @@ function genExplosions(x, y, color, canGenerate = false) {
     explosion++;
     // random chance to generate another explosion at the same x,y
     const doubleExplosionChance = 0.60;
-    const tripleExplosionChance = 0.30;
-    const recursiveExplosionChance = 0.10;
+    const tripleExplosionChance = 0.25;
+    const recursiveExplosionChance = 0.05;
     const recursivePropagation = 0.15;
     const maxPropagations = 18;
     const gen = Math.random();
