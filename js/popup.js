@@ -1,4 +1,4 @@
-const ERR = "ERROR (popup.js): "; 
+const ERR = "ERROR (popup.js):";
 const popupRegex = "^popup-.*";
 const body = document.querySelector("body");
 search(body);
@@ -25,50 +25,48 @@ function search(e) {
 }
 
 function configPopup(e, popup, direction) {
-    // add popup handler
-    // calculate the size of the popup using the internal elements
-    // also recalculate the position of the ::after arrow
     let width = e.offsetWidth * 0.8;
-    popup.style.width = `${width}px`;
-    let height = 40; // amt to add as extra space
-    for (let c of popup.children) {
-        height += c.offsetHeight;
-    }
+    popup.style.minWidth = `${width}px`;
 
-    popup.style.height = `${height}px`;
-    // only allow 20 resizes - mostly likely an error somewhere if more than that
-    const maxI = 20;
-    for (let i = 0; i < maxI && isOverflown(popup); i++) { // guarded while loop
-        // increase the size of the smallest dimension until not
-        if (width > height) {
-            height += 30;
-            popup.style.height = `${height}px`;
-        } else {
-            width += 30;
-            popup.style.width = `${width}px`;
-        }
-        if (i == maxI - 1) console.log(ERR + "element resized because of overflow to max: " + popup);
-    }
-
-    e.addEventListener("click", adjustLocation(popup, direction, width, height));
+    // add popup handler
+    e.addEventListener("click", adjustLocation(popup, direction, e));
 }
 
-function adjustLocation(popup, direction, width, height) {
-    return function (e) {
+function adjustLocation(popup, direction, e) {
+    const width = e.offsetWidth;
+    const height = e.offsetHeight;
+    return function () {
+        let px = 0, py = 0;
+        const gap = 15;
         switch (direction) {
             case "above":
-                const popupY = -height - 25;
-                popup.style.top = `${popupY}px`;
+                py = height + gap;
+                px = (width / 2) - (popup.offsetWidth / 2);
                 break;
             case "right":
-
+                py = height * 0.6;
+                px = width + gap;
                 break;
-            default: console.log(ERR + " " + direction + " is not recognized");
+            default: throw new Error(" " + direction + " is not recognized");
         }
+        popup.style.bottom = `${py}px`;
+        popup.style.left = `${px}px`;
         popup.classList.toggle("show");
     };
 }
 
-function isOverflown(e) {
-    return e.scrollHeight > e.clientHeight || e.scrollWidth > e.clientWidth;
+function fixOverflown(e, width, height) {
+    const co = e.style.overflow;
+    if (!co || co === "visible") {
+        e.style.overflow = "hidden";
+    }
+    const of = e.scrollHeight > e.clientHeight || e.scrollWidth > e.clientWidth;
+    if (of) {
+        height += e.scrollHeight - e.clientHeight;
+        width += e.scrollWidth - e.clientWidth;
+        e.style.width = `${width}px`;
+        e.style.height = `${height}px`;
+        console.log(width, height);
+    }
+    e.style.overflow = co;
 }

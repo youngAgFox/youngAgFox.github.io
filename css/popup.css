@@ -5,9 +5,35 @@
   cursor: pointer;
 }
 
-.popup-right .popuptext, .popup-above .popuptext {
-  justify-content: space-around;
+.popup-above .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: calc(50% - 10px);
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  z-index: 5;
+  border-color: hsl(var(--clr-medSteel)) transparent transparent transparent;
+}
+
+/* Left popup arrow */
+.popup-right .popuptext::after {
+  content: "";
+  position: absolute;
+  transform: rotateZ(90deg);
+  top: calc(50% - 10px);
+  left: -10px;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  z-index: 5;
+  border-color: hsl(var(--clr-medSteel)) transparent transparent transparent;
+}
+
+.popuptext {
   display: flex;
+  justify-content: space-around;
   flex-direction: column;
   color: hsl(var(--clr-whiteBlue));
   background-color: hsl(var(--clr-medSteel));
@@ -16,19 +42,7 @@
   position: absolute;
   z-index: 1;
   visibility: hidden;
-}
-
-.popup-above .popuptext::after {
-  content: "";
-  position: absolute;
-  transform: scale3d(4.0, 4.0, 1);
-  top: calc(100% + 5px * 3);
-  left: calc(50% - 5px);
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  z-index: 5;
-  border-color: hsl(var(--clr-medSteel)) transparent transparent transparent;
+  gap: 30px;
 }
 
 .popuptext h1 {
@@ -44,8 +58,9 @@
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
 .popup-right .show, .popup-above .show {
   visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
+  opacity: 0;
+  -webkit-animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s;
   animation-fill-mode: forwards;
 }
 
@@ -53,21 +68,14 @@
     box-shadow: 1px 1px 6px hsl(var(--clr-lightBlue));
 }
 
-.popup-right .popuptext {
-  left: 105%;
-  top: 30%;
+@keyframes pop {
+  to {
+  box-shadow: 4px 4px 6px;
+  }
 }
 
-/* Left popup arrow */
-.popup-right .popuptext::after {
-  content: "";
-  position: absolute;
-  transform: rotateZ(90deg);
-  top: calc(50% - 5px);
-  left: -5px;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  z-index: 5;
-  border-color: hsl(var(--clr-medSteel)) transparent transparent transparent;
+@keyframes fadeIn {
+    to {
+        opacity: 100%;
+    }
 }
