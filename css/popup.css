@@ -9,7 +9,7 @@
   content: "";
   position: absolute;
   top: 100%;
-  left: calc(50% - 10px);
+  left: calc(50% - 5px);
   margin-left: -10px;
   border-width: 10px;
   border-style: solid;
@@ -22,7 +22,7 @@
   content: "";
   position: absolute;
   transform: rotateZ(90deg);
-  top: calc(50% - 10px);
+  top: calc(50% - 5px);
   left: -10px;
   margin-left: -10px;
   border-width: 10px;
