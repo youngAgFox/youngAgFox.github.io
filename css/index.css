@@ -245,6 +245,8 @@ h4 {font-size: var(--fs-300);}
 /* used with the videoOpacity script */
 .project video, .project img {
     width: 600px;
+    max-width: 90%;
+    min-width: 200px;
     opacity: 40%;
     box-shadow: 2px 2px 8px 2px hsl(var(--clr-steelBlue));
 }
