@@ -54,19 +54,3 @@ function adjustLocation(popup, direction, e) {
         popup.classList.toggle("show");
     };
 }
-
-function fixOverflown(e, width, height) {
-    const co = e.style.overflow;
-    if (!co || co === "visible") {
-        e.style.overflow = "hidden";
-    }
-    const of = e.scrollHeight > e.clientHeight || e.scrollWidth > e.clientWidth;
-    if (of) {
-        height += e.scrollHeight - e.clientHeight;
-        width += e.scrollWidth - e.clientWidth;
-        e.style.width = `${width}px`;
-        e.style.height = `${height}px`;
-        console.log(width, height);
-    }
-    e.style.overflow = co;
-}
