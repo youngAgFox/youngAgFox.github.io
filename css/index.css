@@ -221,6 +221,40 @@ h4 {font-size: var(--fs-300);}
     animation-fill-mode: forwards;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 60px;
+}
+
+.form-control {
+    display: block;
+    min-width: 50vw;
+    max-width: 80vw;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid hsl(var(--clr-silver));
+    color: hsl(var(--clr-lightSilver));
+    font-size: var(--fs-300);
+    margin-bottom: 1ch;
+}
+
+form .submit {
+    background: hsl(var(--clr-medSteel));
+    border: none;
+    border-radius: 12px;
+    min-width: 0;
+    align-self: center;
+}
+
+form .submit:hover {
+    background: hsl(var(--clr-steelBlue));
+    color: hsl(var(--clr-darkSteel));
+}
+
 .project {
     position: relative;
     display: flex;
