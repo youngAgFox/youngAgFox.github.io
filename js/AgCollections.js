@@ -1,3 +1,9 @@
+// author: Anthony Segedi
+/* A collection library I started for this project. I wanted
+* to use a LinkedList in addition to a in-place removal so
+* I implemented both the LinkedList and iterator for it
+*/
+
 class LinkedNode {
     constructor(data) {
         this.data = data;
