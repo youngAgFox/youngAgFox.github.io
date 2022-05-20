@@ -9,6 +9,7 @@ let explosion = 0;
 let doubleExplosion = 0;
 let tripleExplosion = 0;
 let recursiveExplosion = 0;
+let maxAnimations = 0;
 
 /** @type {HTMLCanvasElement} */
 const canvas = document.getElementById("fireworkCanvas");
@@ -168,8 +169,6 @@ function genExplosions(x, y, color, canGenerate = false) {
         }
     }
 
-    explosionDiv.innerText = `Explosions: ${explosion} Doubles: ${doubleExplosion} Triples: ${tripleExplosion}` +
-        "\n" + (recursiveExplosion < 1 ? "?: 0" : `Recursives: ${recursiveExplosion}`);
 
     let e;
     let rx, ry;
@@ -242,6 +241,14 @@ function update(time) {
     if (lastTime === undefined) lastTime = time;
     c.clearRect(0, 0, canvas.width, canvas.height);
 
+    // update maxAnimations
+    if (fireworks.length > maxAnimations)
+        maxAnimations = fireworks.length;
+
+    explosionDiv.innerText = `Explosions: ${explosion}   Doubles: ${doubleExplosion}   Triples: ${tripleExplosion}` +
+        "\n" + (recursiveExplosion < 1 ? "?: 0" : `Recursives: ${recursiveExplosion}`) + 
+        `\nObjects: ${fireworks.length}\nMost Objects: ${maxAnimations}`;
+        
     // In place removal makes this much more efficient
     const it = fireworks.iterator();
     let f;
