@@ -269,6 +269,17 @@ form .submit:hover {
     color: hsl(var(--clr-darkSteel));
 }
 
+nav {
+    object-fit: contain;
+}
+
+#nav a {
+    text-decoration: none;
+}
+
+#nav a:hover {
+    color: hsl(var(--clr-steelBlue));
+}
 
 .debug {
     border: 2px solid green;
