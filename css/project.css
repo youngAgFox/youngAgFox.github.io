@@ -8,7 +8,7 @@
     justify-content: center;
     text-align: center;
     flex-wrap: wrap;
-    max-width: 80%;
+    max-width: 95vw;
     gap: 40px;
     /* border: 2px solid pink; */
 }

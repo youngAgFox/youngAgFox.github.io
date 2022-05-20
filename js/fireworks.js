@@ -32,7 +32,7 @@ document.addEventListener("scroll", scrollCheck);
 const explosionDuration = 1; // in seconds
 
 window.addEventListener("mousedown", mouseUpdate);
-window.addEventListener("touchstart", mouseUpdate);
+window.addEventListener("touchend", mouseUpdate);
 
 /** @param {MouseEvent} e */
 function mouseUpdate(e) {

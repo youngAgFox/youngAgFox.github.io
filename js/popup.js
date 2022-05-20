@@ -30,7 +30,7 @@ function configPopup(e, popup, direction) {
 
     // add popup handler
     e.addEventListener("click", adjustLocation(popup, direction, e));
-    e.addEventListener("touchstart", adjustLocation(popup, direction, e));
+    e.addEventListener("touchend", adjustLocation(popup, direction, e));
     window.addEventListener("resize", () => popup.classList.remove("show"));
 }
 
@@ -51,6 +51,16 @@ function adjustLocation(popup, direction, e) {
                 break;
             default: throw new Error(" " + direction + " is not recognized");
         }
+
+        // check if we are popping up out of bounds
+        //console.log("outside: ", px + popup.offsetWidth);
+        let ex = px + popup.offsetWidth;
+        if (ex > window.innerWidth) {
+            console.log("outside:", ex);
+            console.log("window:", window.innerWidth);
+            px -= ex - window.outerWidth;
+        }
+
         popup.style.bottom = `${py}px`;
         popup.style.left = `${px}px`;
         popup.classList.toggle("show");
