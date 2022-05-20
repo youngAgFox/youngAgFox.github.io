@@ -28,19 +28,12 @@ function configPopup(e, popup, direction) {
     let width = e.offsetWidth * 0.8;
     popup.style.minWidth = `${width}px`;
 
-    // add popup handler
-    //e.addEventListener("click", adjustLocation(popup, direction, e));
-    //e.addEventListener("touchend", adjustLocation(popup, direction, e));
     e.addEventListener("pointerdown", adjustLocation(popup, direction, e));
     window.addEventListener("resize", () => popup.classList.remove("show"));
 }
 
 function adjustLocation(popup, direction, e) {
     return function (evt) {
-        /*
-        if (evt.type == "touchend")
-            evt.preventDefault();
-            */
         const width = e.offsetWidth;
         const height = e.offsetHeight;
         let px = 0, py = 0;

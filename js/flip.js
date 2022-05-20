@@ -1,12 +1,5 @@
 const cards = document.querySelectorAll(".flip-card-inner");
 for (let c of cards) {
-    /*
-    c.addEventListener("click", () => c.classList.toggle("flip"));
-    c.addEventListener("touchend", (evt) => {
-        evt.preventDefault();
-        c.classList.toggle("flip")
-    });
-    */
     c.addEventListener("pointerdown", () => c.classList.toggle("flip"));
 }
 
