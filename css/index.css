@@ -66,6 +66,10 @@ a {
     color: hsl(var(--clr-goldenBrown));
 }
 
+a:hover {
+    color: hsl(var(--clr-darkSteelBlue));
+}
+
 img {
     image-rendering: optimizeQuality;
     object-fit: fill;
