@@ -36,12 +36,12 @@
 .project img {
     opacity: 80%;
     box-shadow: 2px 2px 8px 2px hsl(var(--clr-steelBlue));
-    transition: transform .5s ease;
+    transition: transform .2s ease;
     height: 100%;
 }
 
 .project img:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 
 /* used with the videoOpacity script */
