@@ -60,6 +60,7 @@
 .popup-right .show, .popup-above .show {
   visibility: visible;
   opacity: 0;
+  min-width: 200px;
   -webkit-animation: fadeIn 0.5s;
   animation: fadeIn 0.5s;
   animation-fill-mode: forwards;
