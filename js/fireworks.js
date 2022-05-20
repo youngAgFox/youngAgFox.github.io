@@ -1,6 +1,6 @@
 import * as Ag from "./AgCollections.js";
 
-const colors = ["red", "green", "blue", "violet", "orange", "yellow", "magenta"];
+const colors = ["red", "lightGreen", "blue", "violet", "orange", "yellow", "magenta"];
 const fireworkRadius = 2;
 
 const fireworks = new Ag.LinkedList();
