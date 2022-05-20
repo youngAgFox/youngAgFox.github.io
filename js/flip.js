@@ -1,6 +1,7 @@
 const cards = document.querySelectorAll(".flip-card-inner");
 for (let c of cards) {
     c.addEventListener("pointerdown", () => c.classList.toggle("flip"));
+    c.style += "cursor: pointer;";
 }
 
 const fronts = document.querySelectorAll(".flip-card-front");

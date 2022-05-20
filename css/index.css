@@ -71,6 +71,10 @@ img {
     object-fit: fill;
 }
 
+img video {
+    background-color: hsl(var(--clr-darkSteelBlue));
+}
+
 p, ul, ol {
     font-size: var(--fs-300);
 }
