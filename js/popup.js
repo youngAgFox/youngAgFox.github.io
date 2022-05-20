@@ -30,6 +30,7 @@ function configPopup(e, popup, direction) {
 
     // add popup handler
     e.addEventListener("click", adjustLocation(popup, direction, e));
+    e.addEventListener("touchstart", adjustLocation(popup, direction, e));
     window.addEventListener("resize", () => popup.classList.remove("show"));
 }
 

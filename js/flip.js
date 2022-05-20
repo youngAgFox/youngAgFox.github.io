@@ -1,6 +1,7 @@
 const cards = document.querySelectorAll(".flip-card-inner");
 for (let c of cards) {
-    c.addEventListener("click", () => c.classList.toggle("flip"));
+    c.addEventListener("mousedown", () => c.classList.toggle("flip"));
+    c.addEventListener("touchstart", () => c.classList.toggle("flip"));
 }
 
 const fronts = document.querySelectorAll(".flip-card-front");

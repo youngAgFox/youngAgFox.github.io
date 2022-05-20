@@ -31,12 +31,17 @@ let isInView = false;
 document.addEventListener("scroll", scrollCheck);
 const explosionDuration = 1; // in seconds
 
-window.addEventListener("click", mouseUpdate);
+window.addEventListener("mousedown", mouseUpdate);
+window.addEventListener("touchstart", mouseUpdate);
 
 /** @param {MouseEvent} e */
 function mouseUpdate(e) {
-    const cx = e.clientX;
-    const cy = e.clientY;
+    let cx = e.clientX;
+    let cy = e.clientY;
+    if (e.type == "touchstart") {
+        cx = e.changedTouches[0].clientX;
+        cy = e.changedTouches[0].clientY;
+    } 
     const rect = canvas.getBoundingClientRect();
     if (cy < rect.bottom && cy > rect.top) {
         const tx = cx - rect.left;
