@@ -8,7 +8,7 @@ let e;
 // Add the flip hint text
 for (let f of fronts) {
     e = document.createElement("div");
-    e.style = "position: absolute; left: 1ch; bottom: 1ch; opacity: 90%; color: hsl(var(--clr-lightBlue));";
+    e.style = "position: absolute; left: 1ch; top: 1ch; opacity: 90%; color: hsl(var(--clr-lightBlue)); font-size: 12px;";
     e.innerText = "Click to Flip";
     f.insertBefore(e, f.firstChild);
 }
