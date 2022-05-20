@@ -1,6 +1,6 @@
 .project {
     background-color: hsl(var(--clr-steel));
-    min-width: 600px;
+    min-width: 300px;
     border-radius: 12px;
     position: relative;
     display: flex;
@@ -14,11 +14,12 @@
 }
 
 .project button {
-    min-width: 400px;
+    min-width: 300px;
+    width: 70%;
     min-height: 360px;
     display: flex;
     flex-direction: column;
-    max-width: 40%;
+    max-width: 400px;
     justify-content: space-evenly;
     padding: 2ch;
 }
