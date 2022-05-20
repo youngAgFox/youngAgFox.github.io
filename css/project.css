@@ -1,6 +1,7 @@
 .project {
     background-color: hsl(var(--clr-steel));
     min-width: 300px;
+    width: 70%;
     border-radius: 12px;
     position: relative;
     display: flex;
