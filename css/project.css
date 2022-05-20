@@ -1,0 +1,129 @@
+.project {
+    background-color: hsl(var(--clr-steel));
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    padding: 4ch 2ch;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    max-width: 80%;
+    gap: 40px;
+    /* border: 2px solid pink; */
+}
+
+.project button {
+    min-width: 400px;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    justify-content: space-evenly;
+    padding: 2ch;
+}
+
+/* used with the videoOpacity script */
+.project video, .project img {
+    width: 600px;
+    max-width: 90%;
+    min-width: 200px;
+    opacity: 70%;
+}
+
+.project img {
+    opacity: 80%;
+    box-shadow: 2px 2px 8px 2px hsl(var(--clr-steelBlue));
+    transition: transform .5s ease;
+    height: 100%;
+}
+
+.project img:hover {
+    transform: scale(1.1);
+}
+
+/* used with the videoOpacity script */
+.project video:hover, .project img:hover {
+    opacity: 100%;
+}
+
+/* used with the videoOpacity script */
+.project .opaque {
+    opacity: 100%;
+}
+/* Flip-card code from w3schools - modified for my needs */
+/* https://www.w3schools.com/howto/howto_css_flip_card.asp */
+/* Also see */
+/* https://1stwebdesigner.com/learn-how-to-create-flip-cards-using-css/ */
+/* The flip card container - set the width and height to whatever you want. We have added the border property 
+to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid hsl(var(--clr-steelBlue));
+  border-radius: 16px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.flip-card-inner:hover {
+    box-shadow: 0 0 8px 2px hsl(var(--clr-gold));
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+/* TODO change to onclick */
+.flip {
+  transform: rotateX(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  padding: 1ch;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: hsl(var(--clr-darkSteel));
+  padding: 2ch;
+}
+
+.flip-card-front h2 {
+    font-size: var(--fs-400);
+}
+
+.flip-card-front p {
+    font-size: var(--fs-300);
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: hsl(var(--clr-steelBlue));
+  transform: rotateX(180deg);
+}
+
+.flip-card-back h1 {
+    font-size: var(--fs-200);
+    margin-top: 1ch;
+}
+
+.flip-card-back p {
+    font-size: var(--fs-100);
+    margin: 0 2ch;
+}
+
+.flip-card-back a, .flip-card-back span {
+    margin-top: 3ch;
+}
