@@ -54,12 +54,14 @@ function adjustLocation(popup, direction, e) {
 
         // check if we are popping up out of bounds
         //console.log("outside: ", px + popup.offsetWidth);
-        let ex = px + popup.offsetWidth;
-        if (ex > window.innerWidth) {
-            console.log("outside:", ex);
-            console.log("window:", window.innerWidth);
-            px -= ex - window.outerWidth;
-        }
+        if (px < 0) px = gap;
+        let ex = px + width;
+        if (ex > window.innerWidth)
+            px = window.innerWidth - width - gap;
+        if (py < 0) py = gap;
+        let ey = py + height;
+        if (ey > window.innerHeight)
+            py = window.innerHeight - height - gap;
 
         popup.style.bottom = `${py}px`;
         popup.style.left = `${px}px`;
