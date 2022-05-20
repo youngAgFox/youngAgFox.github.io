@@ -38,9 +38,10 @@ window.addEventListener("touchend", mouseUpdate);
 function mouseUpdate(e) {
     let cx = e.clientX;
     let cy = e.clientY;
-    if (e.type == "touchstart") {
+    if (e.type == "touchend") {
         cx = e.changedTouches[0].clientX;
         cy = e.changedTouches[0].clientY;
+        evt.preventDefault();
     } 
     const rect = canvas.getBoundingClientRect();
     if (cy < rect.bottom && cy > rect.top) {

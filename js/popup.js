@@ -35,7 +35,9 @@ function configPopup(e, popup, direction) {
 }
 
 function adjustLocation(popup, direction, e) {
-    return function () {
+    return function (evt) {
+        if (evt.type == "touchend")
+            evt.preventDefault();
         const width = e.offsetWidth;
         const height = e.offsetHeight;
         let px = 0, py = 0;
