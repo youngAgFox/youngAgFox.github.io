@@ -31,18 +31,19 @@ let isInView = false;
 document.addEventListener("scroll", scrollCheck);
 const explosionDuration = 1; // in seconds
 
-window.addEventListener("mousedown", mouseUpdate);
-window.addEventListener("touchend", mouseUpdate);
+//window.addEventListener("mousedown", mouseUpdate);
+//window.addEventListener("touchend", mouseUpdate);
+window.addEventListener("pointerdown", mouseUpdate);
 
 /** @param {MouseEvent} e */
 function mouseUpdate(e) {
     let cx = e.clientX;
     let cy = e.clientY;
-    if (e.type == "touchend") {
-        cx = e.changedTouches[0].clientX;
-        cy = e.changedTouches[0].clientY;
-        e.preventDefault();
-    } 
+    // if (e.type == "touchend") {
+    //     cx = e.changedTouches[0].clientX;
+    //     cy = e.changedTouches[0].clientY;
+    //     e.preventDefault();
+    // } 
     const rect = canvas.getBoundingClientRect();
     if (cy < rect.bottom && cy > rect.top) {
         const tx = cx - rect.left;
