@@ -18,9 +18,9 @@
 <body>
     <!-- header -->
     <div class="bg-body" style="min-height: 100vh; overflow: hidden; height: fit-content;">
-        <div class="flex" style="border-bottom: 8px outset hsl(var(--ac-header)); flex-wrap: wrap; overflow: hidden;">
+        <div class="flex" style=" flex-wrap: wrap; overflow: hidden;">
             <div class="bg-header flex-column"
-                style="padding: 1cm 6ch; gap: 2ch; max-height: 800px; align-items: center; flex: 0.45;">
+                style="padding: 1cm 6ch; gap: 2ch; max-height: 800px; align-items: center; flex: 0.45; border-right: 8px solid hsl(var(--ac-header)); border-bottom: 8px outset hsl(var(--ac-header));">
                 <h1
                     style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;">
                     Hey there, I'm AJ!
@@ -39,7 +39,7 @@
                 </button>
             </div>
             <div class="bg-steel slideIn-left fs-400"
-                style="padding: 1cm 4ch; border-left: 8px solid hsl(var(--ac-header)); flex: 1; min-width: 500px;">
+                style="padding: 1cm 4ch; flex: 1; min-width: 500px; border-bottom: 8px outset hsl(var(--ac-header));">
 
                 <p class="fc-white fs-200" style="margin-top: 2ch;">
                     I am a calm problem solver who will never stop learning or improving.
@@ -54,10 +54,14 @@
                 </p>
             </div>
         </div>
+    <!--  -->
+    <div>
+        <h1>A little about me</h1>
+    </div>
         <div class="fadeIn flex-column"
             style="animation-delay: 7.5s; text-align: center; align-items: center; position: relative; margin-bottom: 160px;">
             <p class="fs-400" style="margin: 1rem;">
-                Check it out below!
+                Check out my projects below!
             </p>
             <img src="./res/images/continue-arrow.svg" alt="arrow pointing down" height="60px"
                 style="position: absolute; top: 100%; animation-delay: 7.5s;" class="point-vert" />
@@ -87,7 +91,7 @@
         </h1>
     </div>
     <div id="projects" class="bg-darkSteelBlue fc-silver flex-column"
-        style="justify-content: space-around; align-items: center; padding: 2ch; gap: 140px; width: 100%;">
+        style="justify-content: space-around; align-items: center; padding: 0 2ch; gap: 140px; width: 100%;">
         <h4 class="bg-darkSteelBlue fc-white" style="padding: 2ch; width: 100%; text-align: center; padding-bottom: 4ch;">
             Click the project description box for more info, images link to the source.
         </h4>

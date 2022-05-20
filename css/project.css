@@ -1,5 +1,6 @@
 .project {
     background-color: hsl(var(--clr-steel));
+    min-width: 600px;
     border-radius: 12px;
     position: relative;
     display: flex;
@@ -28,6 +29,7 @@
     max-width: 90%;
     min-width: 200px;
     opacity: 70%;
+    max-width: 90vw;
 }
 
 .project img {
@@ -80,13 +82,11 @@ to demonstrate that the flip itself goes out of the box on hover (remove perspec
     box-shadow: 0 0 8px 2px hsl(var(--clr-gold));
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
-/* TODO change to onclick */
+/* Toggle this to flip the card */
 .flip {
   transform: rotateX(180deg);
 }
 
-/* Position the front and back side */
 .flip-card-front, .flip-card-back {
   padding: 1ch;
   position: absolute;
@@ -94,7 +94,6 @@ to demonstrate that the flip itself goes out of the box on hover (remove perspec
   height: 100%;
 }
 
-/* Style the front side (fallback if image is missing) */
 .flip-card-front {
   background-color: hsl(var(--clr-darkSteel));
   padding: 2ch;
@@ -108,7 +107,6 @@ to demonstrate that the flip itself goes out of the box on hover (remove perspec
     font-size: var(--fs-300);
 }
 
-/* Style the back side */
 .flip-card-back {
   background-color: hsl(var(--clr-steelBlue));
   transform: rotateX(180deg);
