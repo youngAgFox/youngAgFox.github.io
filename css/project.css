@@ -1,6 +1,4 @@
 .project {
-    /* Safari event bubble fix */
-    cursor: pointer;
     background-color: hsl(var(--clr-steel));
     min-width: 300px;
     width: 70%;
@@ -70,6 +68,8 @@ to demonstrate that the flip itself goes out of the box on hover (remove perspec
 
 /* This container is needed to position the front and back side */
 .flip-card-inner {
+    /* Safari event bubble fix */
+    cursor: pointer;
     position: relative;
     width: 100%;
     height: 100%;
