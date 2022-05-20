@@ -59,7 +59,7 @@ body {
 }
 
 a {
-    color: hsl(var(--clr-goldenBrown));
+    color: hsl(var(--clr-silver));
 }
 
 a:hover {
