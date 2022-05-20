@@ -58,10 +58,6 @@ body {
     height: auto;
 }
 
-a:visited {
-    color: hsl(var(--clr-gold));
-}
-
 a {
     color: hsl(var(--clr-goldenBrown));
 }
