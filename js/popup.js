@@ -29,7 +29,6 @@ function configPopup(e, popup, direction) {
     popup.style.minWidth = `${width}px`;
 
     e.addEventListener("click", adjustLocation(popup, direction, e));
-    //e.addEventListener("pointerdown", adjustLocation(popup, direction, e));
     window.addEventListener("resize", () => popup.classList.remove("show"));
 }
 

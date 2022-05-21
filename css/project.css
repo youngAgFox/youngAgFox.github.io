@@ -89,6 +89,7 @@ to demonstrate that the flip itself goes out of the box on hover (remove perspec
 
 .flip-card-front,
 .flip-card-back {
+    z-index: 100;
     padding: 1ch;
     position: absolute;
     width: 100%;
