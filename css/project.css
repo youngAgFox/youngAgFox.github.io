@@ -68,8 +68,6 @@ to demonstrate that the flip itself goes out of the box on hover (remove perspec
 
 /* This container is needed to position the front and back side */
 .flip-card-inner {
-    /* Safari event bubble fix */
-    cursor: pointer;
     position: relative;
     width: 100%;
     height: 100%;
@@ -89,6 +87,8 @@ to demonstrate that the flip itself goes out of the box on hover (remove perspec
 
 .flip-card-front,
 .flip-card-back {
+    /* Safari event bubble fix */
+    cursor: pointer;
     z-index: 100;
     padding: 1ch;
     position: absolute;
