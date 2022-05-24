@@ -1,6 +1,7 @@
-const cards = document.querySelectorAll(".flip-card-inner");
+const cards = document.querySelectorAll(".flip-card");
 for (let c of cards) {
-    c.addEventListener("click", () => c.classList.toggle("flip"));
+    let inner = c.querySelector(".flip-card-inner");
+    c.addEventListener("click", () => inner.classList.toggle("flip"));
     c.style += "cursor: pointer;";
 }
 
