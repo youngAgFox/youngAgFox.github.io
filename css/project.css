@@ -87,7 +87,12 @@ to demonstrate that the flip itself goes out of the box on hover (remove perspec
 
 .flip-card-front,
 .flip-card-back {
-    /* Safari event bubble fix */
+    /* 
+    Bug fix for Firefox. Removing this makes content visible from front on back side of card. 
+    See https://stackoverflow.com/questions/9604982/backface-visibility-not-working-properly-in-firefox-works-in-safari
+    */
+    transform: rotateX(0deg);
+
     cursor: pointer;
     z-index: 100;
     padding: 1ch;
@@ -101,14 +106,6 @@ to demonstrate that the flip itself goes out of the box on hover (remove perspec
 .flip-card-front {
     background-color: hsl(var(--clr-darkSteel));
     padding: 2ch;
-}
-
-.flip-card-front h2 {
-    font-size: var(--fs-400);
-}
-
-.flip-card-front p {
-    font-size: var(--fs-300);
 }
 
 .flip-card-back {
