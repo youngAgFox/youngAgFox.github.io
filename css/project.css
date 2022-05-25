@@ -118,9 +118,10 @@ to demonstrate that the flip itself goes out of the box on hover (remove perspec
     margin-top: 1ch;
 }
 
-.flip-card-back p {
+.flip-card-back p, .flip-card-back ul {
     font-size: var(--fs-100);
     margin: 0 2ch;
+    list-style: none;
 }
 
 .flip-card-back a,
