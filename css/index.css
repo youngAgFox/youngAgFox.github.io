@@ -118,9 +118,9 @@ h4 {font-size: var(--fs-200);}
     /* see https://www.joshwcomeau.com/animation/css-transitions/ */
     animation-timing-function:  cubic-bezier(0.215, 0.61, 0.355, 1);
 
-    animation-duration: 1s;
+    animation-duration: 1.5s;
     animation-fill-mode: forwards;
-    left: 100%;
+    left: 100vw;
 }
 
 @keyframes slideIn-left {
