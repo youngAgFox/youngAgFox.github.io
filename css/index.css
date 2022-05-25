@@ -187,6 +187,8 @@ h4 {font-size: var(--fs-200);}
 .fc-steelBlue{ color: hsl(var(--clr-steelBlue));}
 .fc-silver{ color: hsl(var(--clr-silver));}
 .fc-white { color: #FFF;}
+.fc-darkSteelBlue { color: hsl(var(--clr-darkSteelBlue));}
+.fc-darkSteel { color: hsl(var(--clr-darkSteel));}
 
 /* font size util */
 .fs-800 {font-size: var(--fs-800);}
