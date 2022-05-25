@@ -2,10 +2,7 @@ const body = document.querySelector("body");
 const e = document.createElement("div");
 e.style = "height: 1.5cm; padding: 0 2ch; position: sticky; top: 0; z-index: 1000; justify-content: space-between; align-items: center;";
 e.id = "nav";
-e.classList.add("bg-darkSteel");
-e.classList.add("fc-white");
-e.classList.add("fs-300");
-e.classList.add("flex");
+e.classList.add("bg-darkSteel", "fc-white", "fs-300", "flex");
 e.innerHTML = `
     <a href="https://www.ajseg.com">Anthony Segedi's <span style="color: hsl(var(--clr-steel));">Portfolio</span></a>
     <div class="flex fs-100" style="height: 100%; gap: 20px; align-items: center;">
