@@ -1,7 +1,6 @@
 import * as Ag from "./AgCollections.js";
 
 const colors = ["red", "lightGreen", "blue", "violet", "orange", "yellow", "magenta"];
-const fireworkRadius = 2;
 
 const fireworks = new Ag.LinkedList();
 
@@ -31,7 +30,7 @@ let isInView = false;
 document.addEventListener("scroll", scrollCheck);
 const explosionDuration = 1; // in seconds
 
-window.addEventListener("click", mouseUpdate);
+window.addEventListener("pointer", mouseUpdate);
 
 /** @param {MouseEvent} e */
 function mouseUpdate(e) {
