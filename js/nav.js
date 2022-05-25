@@ -7,9 +7,11 @@ e.classList.add("fc-white");
 e.classList.add("fs-300");
 e.classList.add("flex");
 e.innerHTML = `
-    <a href="https://www.ajseg.com">Anthony Segedi<span style="color: hsl(var(--clr-steel));">'s Portfolio</span></a>
-    <div class="flex fs-100" style="height: 100%; gap: 40px; align-items: center;">
-        <a href="https://github.com/segedi-UW">UW-GitHub</a>
+    <a href="https://www.ajseg.com">Anthony Segedi's <span style="color: hsl(var(--clr-steel));">Portfolio</span></a>
+    <div class="flex fs-100" style="height: 100%; gap: 20px; align-items: center;">
+        <a href="https://github.com/segedi-UW">
+        <img height="30" src="/res/images/GitHub-Logo/GitHub-Mark-Light-64px.png" alt="UW-GitHub"/>
+        </a>
         <a href="https://www.linkedin.com/in/anthony-segedi-5a6036142?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BG%2BVOcVjZQACDvpCOtbCfQA%3D%3D">
         <img height="30" src="/res/images/LinkedIn-Logos/LI-In-Bug.png" alt="LinkedIn"/>
         </a>
