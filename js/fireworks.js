@@ -31,6 +31,7 @@ document.addEventListener("scroll", scrollCheck);
 const explosionDuration = 1; // in seconds
 
 window.addEventListener("pointer", mouseUpdate);
+window.addEventListener("click", mouseUpdate);
 
 /** @param {MouseEvent} e */
 function mouseUpdate(e) {
