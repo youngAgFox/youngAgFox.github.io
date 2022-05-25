@@ -27,7 +27,11 @@ function canvasUpdate() {
 const c = canvas.getContext("2d");
 const target = document.getElementById("fireworkTarget");
 let isInView = false;
-document.addEventListener("scroll", scrollCheck);
+if (target != undefined) {
+    document.addEventListener("scroll", scrollCheck);
+} else {
+    console.log("No target for fireworks. Click generated only.");
+}
 const explosionDuration = 1; // in seconds
 
 window.addEventListener("pointerdown", mouseUpdate);

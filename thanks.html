@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Thank you!</title>
+    <link rel="stylesheet" href="/css/index.css" />
+    <script src="/js/fireworks.js" type="module" defer></script>
+    <script src="/js/nav.js" type="module" defer></script>
+</head>
+
+<body class="bg-darkSteel" style="overflow-y: hidden;">
+    <div class="flex-column"
+        style="justify-content: center; align-items: center; width: 100%; user-select: none; position: absolute; top: 15%; z-index: 20;">
+        <h1 class="fc-steelBlue" style="margin: 2ch; text-align: center;">Thanks for reaching out to me!</h1>
+        <p class="fc-silver" style="text-align: center;">
+            I really appreciate your time,
+            <br>
+            feel free to celebrate here!
+        <div id="explosion" class="fc-steelBlue fs-100"
+            style="opacity: 55%; user-select: none; margin: 2ch; text-align: center; width: 100%;">
+            Explosion Count
+        </div>
+        </p>
+    </div>
+    <div id="canvas-container" class="bg-darkSteel" style="width: 100vw; height: 100vh; position: relative;">
+        <canvas id="fireworkCanvas">An interactive area of the screen that when clicked spawns fireworks.</canvas>
+    </div>
+</body>
+
+</html>

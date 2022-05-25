@@ -6,7 +6,7 @@ e.classList.add("bg-darkSteel", "fc-white", "fs-300", "flex");
 e.innerHTML = `
     <a href="https://www.ajseg.com">Anthony Segedi's <span style="color: hsl(var(--clr-steel));">Portfolio</span></a>
     <div class="flex fs-100" style="height: 100%; gap: 20px; align-items: center;">
-        <a href="#contact-form">Contact</a>
+        <a href="/index.html#contact-form">Contact</a>
         <a href="https://github.com/segedi-UW">
         <img height="30" src="/res/images/GitHub-Logo/GitHub-Mark-Light-64px.png" alt="UW-GitHub"/>
         </a>

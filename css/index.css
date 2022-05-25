@@ -48,13 +48,17 @@
     scroll-behavior: smooth;
 }
 
+button:hover {
+    background-color: hsl(var(--clr-silver));
+}
+
 button {
-    background-color: transparent;
-    background: none;
-    border: none;
-    color: inherit;
-    height: fit-content;
-    width: fit-content;
+    border: 2px solid hsl(var(--clr-darkSteel));
+    border-radius: 12px;
+    background-color: hsl(var(--clr-steelBlue));
+    font-size: var(--fs-200);
+    padding: 1ch 2ch;
+    min-width: 80px;
 }
 
 body {
@@ -228,7 +232,7 @@ h4 {font-size: var(--fs-200);}
 .bg-silver{ background-color: hsl(var(--clr-silver));}
 
 
-#canvas-container::before {
+.transition::before {
     content: "";
     position: absolute;
     height: 5%;
