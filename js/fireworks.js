@@ -45,6 +45,11 @@ function mouseUpdate(e) {
         const tx = cx - rect.left;
         const ty = cy - rect.top;
         genExplosions(tx, ty, randomElement(colors), true);
+        let rn = Math.random();
+        if (rn > 0.85) {
+            for (let i = 0; i < 3; i++)
+                fireworks.push(randFirework());
+        }
     }
 }
 class Explosion {
@@ -207,7 +212,13 @@ function scrollCheck() {
         return;
     }
     if (!isInView && fireworks.size() == 0) {
-        for (let i = 0; i < 8; i++) {
+        const scrR = canvas.width * 0.6 / canvas.height;
+        fireworks.push(new Firework(canvas.width / 2, canvas.height, 0, -0.4 * Math.random() - 1, randomElement(colors)));
+        fireworks.push(new Firework(canvas.width / 2, canvas.height, 0.5 * scrR, -0.4 * Math.random() - 1, randomElement(colors)));
+        fireworks.push(new Firework(canvas.width / 2, canvas.height, -0.5 * scrR, -0.4 * Math.random() - 1, randomElement(colors)));
+        fireworks.push(new Firework(canvas.width / 2, canvas.height, 0.75 * scrR, -0.4 * Math.random() - 1, randomElement(colors)));
+        fireworks.push(new Firework(canvas.width / 2, canvas.height, -0.75 * scrR, -0.4 * Math.random() - 1, randomElement(colors)));
+        for (let i = 0; i < 3; i++) {
             let f = randFirework();
             fireworks.push(f);
         }
@@ -230,7 +241,7 @@ function randomWithSign() {
 
 function randFirework() {
     const scrR = canvas.width * 0.6 / canvas.height;
-    const vx = randomWithSign() * scrR; 
+    const vx = randomWithSign() * scrR;
     return new Firework(canvas.width / 2, canvas.height, vx, -0.4 * Math.random() - 1, randomElement(colors));
 }
 
@@ -249,9 +260,9 @@ function update(time) {
         maxAnimations = fireworks.length;
 
     explosionDiv.innerText = `Explosions: ${explosion}   Doubles: ${doubleExplosion}   Triples: ${tripleExplosion}` +
-        "\n" + (recursiveExplosion < 1 ? "?: 0" : `Recursives: ${recursiveExplosion}`) + 
+        "\n" + (recursiveExplosion < 1 ? "?: 0" : `Recursives: ${recursiveExplosion}`) +
         `\nObjects: ${fireworks.length}\nMost Objects: ${maxAnimations}`;
-        
+
     // In place removal makes this much more efficient
     const it = fireworks.iterator();
     let f;
