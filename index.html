@@ -23,7 +23,7 @@
                 style="padding: 1cm 6ch; gap: 2ch; max-height: 800px; align-items: center; flex: 0.45; border-right: 8px solid hsl(var(--ac-header)); border-bottom: 8px outset hsl(var(--ac-header));">
                 <h1
                     style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;">
-                    Hey there, I'm AJ!
+                    I'm AJ
                 </h1>
                 <div class="popup-right" style="border-radius: 42px;">
                     <img id="me" src="./res/images/work_pic.jpg"
@@ -42,14 +42,14 @@
                 style="padding: 1cm 4ch; flex: 1; min-width: 300px; border-bottom: 8px outset hsl(var(--ac-header)); justify-content: center; align-items: center;">
 
                 <p class="fc-white fs-200" style="margin-top: 2ch; text-align: center;">
-                    I am a calm problem solver who will never stop learning or improving.
+                        I strive to be someone others can turn to.
                     <br><br>
                     <span class="slideIn-left" style="animation-delay: 3s;">
-                        Each bug is simply another challenge, another puzzle, another lesson.
+                        To always keep learning and improving.
                     </span>
                     <br><br>
-                    <span class="slideIn-left" style="animation-delay: 6s;">
-                        And I am forever unsatisfied.
+                    <span class="slideIn-left" style="animation-delay: 5.5s;">
+                        And to be grateful.
                     </span>
                 </p>
             </div>
@@ -61,22 +61,25 @@
                 I spent my first year and a half of college thinking I was going to get a biology or chemistry degree.
                 During that pursuit I ended up spending a good chunk of my time creating programs to complete homework
                 and learning about programming to do so. I realized within the year what I really wanted to pursue,
-                quickly adapting to computer science. I continued to learn outside of the classroom, doing online
-                coursework such as the <a href="https://www.theodinproject.com/" class="fc-steelBlue">Odin Project</a>
-                in addition to my university studies.
-                I was able to complete a bachelors in 3 years instead of 4.
+                quickly adapting to computer science. Continuing to learn outside of the classroom, my time became split 
+                completing online coursework such as the <a href="https://www.theodinproject.com/" class="fc-steelBlue">Odin Project</a>
+                in parallel to my university studies. Some examples of this are "Uncle Bob's" clean code lesson series on YouTube
+                presented by Robert Martin himself, the Gang of Four's <em>Design Patterns</em>, 
+                and Knuth's <em>Art of Computer Programming</em> (v. 1).
+                <br><br>
+                Doing well for myself in highschool and consistent course load in college allowed me to graduate in 3 years.
             </p>
             <h1 class="fc-darkSteelBlue" style="margin: 1ch 0 1ch 0;">Who I am</h1>
             <p>
                 I consider myself a team player. I have worked successfully
                 with Roofers at Alois to medical professionals at the Medical College of 
-                Wisconsin to computer science majors at UW Madison.
+                Wisconsin to students of all backgrounds at UW Madison.
                 <br>
                 <br>
                 I strive to do the following more reliably than UDP:
             <ul style="margin: 0 3ch;">
                 <li>Be understanding and empathetic</li>
-                <li>Admit when I have made a mistake</li>
+                <li>Admit when I make a mistake</li>
                 <li>Be open-minded to other solutions</li>
                 <li>Ask why</li>
                 <li>Listen</li>
@@ -117,8 +120,10 @@
         </h1>
     </div>
 
+    <!-- PROJECTS -->
+
     <div id="projects" class="bg-darkSteelBlue fc-silver flex-column"
-        style="justify-content: space-around; align-items: center; padding: 0 2ch; gap: 50px; width: 100%;">
+        style="justify-content: space-around; align-items: center; padding: 0 2ch 15vh 2ch; gap: 50px; width: 100%;">
         <h4 class="bg-darkSteelBlue fc-white"
             style="padding: 2ch; width: 100%; text-align: center; padding-bottom: 4ch;">
             Click the project description box for more info, images link to the source.
@@ -365,24 +370,22 @@
                 </div>
             </div>
         </div>
-
-
-        <div class="flex-column bg-darkSteel"
-            style="justify-content: center; align-items: center; border-radius: 24px; margin: 2ch 10%;">
-            <p class="" style="padding: 2ch 10%; text-align: center;">
-                If you wish to contact me, feel free to use this form! It uses <a href="https://formspree.io/"
-                    class="alt-link">Formspree</a>
-                since I don't want to publish api keys on a public GitHub repo.
-            </p>
-            <form id="contact-form" action="https://formspree.io/f/xdobbenk" method="POST" style="padding: 2ch;">
-                <input name="name" type="text" class="form-control" placeholder="Name" required>
-                <input type="email" name="email" class="form-control" placeholder="Email" required>
-                <textarea name="message" class="form-control" placeholder="Message" rows="4" required></textarea>
-                <input type="submit" class="form-control submit" value="Send">
-            </form>
-        </div>
+    </div>
+    <div class="flex-column bg-darkSteel fc-silver"
+        style="justify-content: center; align-items: center; padding: calc(2ch + 5vh) 10%; width: 100%; height: 100%;">
+        <p class="" style="padding: 2ch 10%; text-align: center;">
+            If you wish to contact me, feel free to use this form! It uses <a href="https://formspree.io/"
+                class="alt-link">Formspree</a>
+            since I don't want to publish api keys on a public GitHub repo.
+        </p>
+        <form id="contact-form" action="https://formspree.io/f/xdobbenk" method="POST" style="padding: 2ch;">
+            <input name="name" type="text" class="form-control" placeholder="Name" required>
+            <input type="email" name="email" class="form-control" placeholder="Email" required>
+            <textarea name="message" class="form-control" placeholder="Message" rows="4" required></textarea>
+            <input type="submit" class="form-control submit" value="Send">
+        </form>
         <a href="/thanks.html" class="fs-300 alt-link" style="margin: 2ch;">Thanks for checking my portfolio out!</a>
     </div>
-</body>
-
-</html>
+    </body>
+    
+    </html>

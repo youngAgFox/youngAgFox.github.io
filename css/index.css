@@ -279,7 +279,7 @@ form .submit {
     background: hsl(var(--clr-medSteel));
     border: none;
     border-radius: 12px;
-    min-width: 0;
+    min-width: 100px;
     align-self: center;
 }
 
