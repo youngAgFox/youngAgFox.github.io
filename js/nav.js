@@ -4,7 +4,7 @@ e.style = "height: 1.5cm; padding: 0 2ch; position: sticky; top: 0; z-index: 100
 e.id = "nav";
 e.classList.add("bg-darkSteel", "fc-white", "fs-300", "flex");
 e.innerHTML = `
-    <a href="https://www.ajseg.com">Anthony Segedi's <span style="color: hsl(var(--clr-steel));">Portfolio</span></a>
+    <a href="/index.html">Anthony Segedi's <span style="color: hsl(var(--clr-steel));">Portfolio</span></a>
     <div class="flex fs-100" style="height: 100%; gap: 20px; align-items: center;">
         <a href="/index.html#contact-form">Contact</a>
         <a href="https://github.com/segedi-UW">
