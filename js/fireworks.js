@@ -46,7 +46,7 @@ function mouseUpdate(e) {
         const ty = cy - rect.top;
         genExplosions(tx, ty, randomElement(colors), true);
         let rn = Math.random();
-        if (rn > 0.85) {
+        if (rn > 0.9) {
             for (let i = 0; i < 3; i++)
                 fireworks.push(randFirework());
         }
@@ -218,9 +218,8 @@ function scrollCheck() {
         fireworks.push(new Firework(canvas.width / 2, canvas.height, -0.5 * scrR, -0.4 * Math.random() - 1, randomElement(colors)));
         fireworks.push(new Firework(canvas.width / 2, canvas.height, 0.75 * scrR, -0.4 * Math.random() - 1, randomElement(colors)));
         fireworks.push(new Firework(canvas.width / 2, canvas.height, -0.75 * scrR, -0.4 * Math.random() - 1, randomElement(colors)));
-        for (let i = 0; i < 3; i++) {
-            let f = randFirework();
-            fireworks.push(f);
+        for (let i = 0; i < 4; i++) {
+            setTimeout(() => fireworks.push(randFirework()), Math.random() * 600 + 300);
         }
         isInView = true;
     }
