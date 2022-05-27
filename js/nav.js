@@ -4,7 +4,7 @@ e.style = "height: 1.5cm; padding: 0 2ch; position: sticky; top: 0; z-index: 100
 e.id = "nav";
 e.classList.add("bg-darkSteel", "fc-white", "fs-300", "flex");
 e.innerHTML = `
-    <a href="/" style="line-height: 1.5 em; height: 3em; overflow: hidden;">Anthony Segedi's <span style="color: hsl(var(--clr-steel));">Portfolio</span></a>
+    <a href="/" style="min-width: 16ch;">Anthony Segedi's <span style="color: hsl(var(--clr-steel));">Portfolio</span></a>
     <div class="flex fs-200" style="height: 100%; gap: 20px; align-items: center;">
         <a href="/#contact-form">Contact</a>
         <span style="margin: 0 -10px;">|</span>

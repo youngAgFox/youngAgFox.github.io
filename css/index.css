@@ -29,8 +29,8 @@
     --fs-500: calc(2.3rem + 0.25vw);
     --fs-400: calc(1.7rem + 0.25vw);
     --fs-300: calc(1.2rem + 0.25vw);
-    --fs-200: calc(0.8rem + 0.25vw);
-    --fs-100: calc(0.5rem + 0.25vw);
+    --fs-200: calc(0.9rem + 0.25vw);
+    --fs-100: calc(0.7rem + 0.25vw);
 }
 
 @media (prefers-reduced-motion: reduce) {
