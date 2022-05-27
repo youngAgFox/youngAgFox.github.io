@@ -47,26 +47,20 @@
 /* https://www.w3schools.com/howto/howto_css_flip_card.asp */
 /* Also see */
 /* https://1stwebdesigner.com/learn-how-to-create-flip-cards-using-css/ */
-/* The flip card container - set the width and height to whatever you want. We have added the border property 
-to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
-    width: 70%;
+    flex-grow: 0.4;
+    width: 35%;
     min-width: 300px;
-    height: 200px;
-    min-height: 360px;
     max-width: 400px;
+    min-height: 360px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     padding: 2ch;
     background-color: transparent;
-    border: 1px solid hsl(var(--clr-steelBlue));
-    border-radius: 16px;
-    /* Remove this if you don't want the 3D effect */
     perspective: 1000px;
 }
 
-/* This container is needed to position the front and back side */
 .flip-card-inner {
     position: relative;
     width: 100%;
