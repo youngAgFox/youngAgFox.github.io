@@ -4,14 +4,15 @@ e.style = "height: 1.5cm; padding: 0 2ch; position: sticky; top: 0; z-index: 100
 e.id = "nav";
 e.classList.add("bg-darkSteel", "fc-white", "fs-300", "flex");
 e.innerHTML = `
-    <a href="/index.html">Anthony Segedi's <span style="color: hsl(var(--clr-steel));">Portfolio</span></a>
+    <a href="/">Anthony Segedi's <span style="color: hsl(var(--clr-steel));">Portfolio</span></a>
     <div class="flex fs-100" style="height: 100%; gap: 20px; align-items: center;">
-        <a href="/index.html#contact-form">Contact</a>
+        <a href="/#contact-form">Contact</a>
         <a href="/res/resume.pdf" target="_blank">Resume</a>
-        <a href="https://github.com/segedi-UW">
+        <a href="https://github.com/segedi-UW" target="_blank">
         <img height="30" src="/res/images/GitHub-Logo/GitHub-Mark-Light-64px.png" alt="UW-GitHub"/>
         </a>
-        <a href="https://www.linkedin.com/in/anthony-segedi-5a6036142?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BG%2BVOcVjZQACDvpCOtbCfQA%3D%3D">
+        <a href="https://www.linkedin.com/in/anthony-segedi-5a6036142?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BG%2BVOcVjZQACDvpCOtbCfQA%3D%3D"
+        target="_blank">
         <img height="30" src="/res/images/LinkedIn-Logos/LI-In-Bug.png" alt="LinkedIn"/>
         </a>
     </div>
