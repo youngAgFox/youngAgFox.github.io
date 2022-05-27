@@ -104,6 +104,7 @@
 .flip-card-front {
     background-color: hsl(var(--clr-darkSteel));
     padding: 2ch;
+    word-break: break-word;
 }
 
 .flip-card-back {
