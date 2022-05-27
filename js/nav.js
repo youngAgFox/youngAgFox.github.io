@@ -7,7 +7,7 @@ e.innerHTML = `
     <a href="/">Anthony Segedi's <span style="color: hsl(var(--clr-steel));">Portfolio</span></a>
     <div class="flex fs-100" style="height: 100%; gap: 20px; align-items: center;">
         <a href="/#contact-form">Contact</a>
-        |
+        <span style="margin: 0 -10px;">|</span>
         <a href="/res/resume.pdf" target="_blank">Resume</a>
         <a href="https://github.com/segedi-UW" target="_blank">
         <img height="30" src="/res/images/GitHub-Logo/GitHub-Mark-Light-64px.png" alt="UW-GitHub"/>
