@@ -86,6 +86,7 @@ class Explosion {
         // kill if out of canvas
         if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
             this.isAlive = false;
+            return;
         }
 
         this.duration -= delta / 1000;
