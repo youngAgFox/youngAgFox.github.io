@@ -253,6 +253,11 @@ function randomElement(list) {
 let lastTime;
 function update(time) {
     if (lastTime === undefined) lastTime = time;
+    if (time - lastTime < 1000/60) {
+        // forces similar refresh rate
+        window.requestAnimationFrame(update);
+        return;
+    }
     c.clearRect(0, 0, canvas.width, canvas.height);
 
     // update maxAnimations
