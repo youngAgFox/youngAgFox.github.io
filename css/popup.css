@@ -66,10 +66,6 @@
   animation-fill-mode: forwards;
 }
 
-.popup-right:hover, .popup-above:hover {
-    box-shadow: 1px 1px 6px hsl(var(--clr-lightBlue));
-}
-
 @keyframes pop {
   to {
   box-shadow: 4px 4px 6px;
