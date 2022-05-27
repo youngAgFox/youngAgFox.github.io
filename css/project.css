@@ -20,12 +20,12 @@
     width: 600px;
     max-width: 90%;
     min-width: 200px;
-    opacity: 70%;
+    opacity: 80%;
     max-width: 98%;
 }
 
 .project img {
-    opacity: 80%;
+    opacity: 90%;
     box-shadow: 2px 2px 8px 2px hsl(var(--clr-steelBlue));
     transition: transform .2s ease;
     height: 100%;
