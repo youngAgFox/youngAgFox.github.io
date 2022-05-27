@@ -44,7 +44,7 @@ function adjustLocation(popup, direction, e) {
                 px = (width / 2) - (popup.offsetWidth / 2);
                 break;
             case "right":
-                py = height * 0.6;
+                py = height * 0.5 - (popup.offsetHeight / 2);
                 px = width + gap;
                 break;
             default: throw new Error(" " + direction + " is not recognized");
