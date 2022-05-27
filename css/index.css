@@ -245,7 +245,7 @@ h4 {font-size: var(--fs-200);}
     display: block;
     height: 60px;
     width: 100vw;
-    background: linear-gradient(hsl(var(--clr-darkSteel)), hsl(var(--clr-darkSteelBlue)));
+    background: linear-gradient(hsl(var(--clr-darkSteel)), hsl(var(--clr-lightSilver)));
 }
 
 #me:hover {

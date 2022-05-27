@@ -1,5 +1,5 @@
 .project {
-    background-color: hsl(var(--clr-steel));
+    background-color: hsl(var(--clr-steelBlue));
     min-width: 300px;
     width: 70%;
     border-radius: 12px;
@@ -107,7 +107,7 @@
 }
 
 .flip-card-back {
-    background-color: hsl(var(--clr-steelBlue));
+    background-color: hsl(var(--clr-darkSteelBlue));
     transform: rotateX(180deg);
 }
 
