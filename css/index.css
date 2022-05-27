@@ -29,8 +29,8 @@
     --fs-500: calc(2.3rem + 0.25vw);
     --fs-400: calc(1.7rem + 0.25vw);
     --fs-300: calc(1.2rem + 0.25vw);
-    --fs-200: calc(1rem + 0.25vw);
-    --fs-100: calc(0.7rem + 0.25vw);
+    --fs-200: calc(0.8rem + 0.25vw);
+    --fs-100: calc(0.5rem + 0.25vw);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -85,7 +85,7 @@ img video {
 }
 
 p, ul, ol {
-    font-size: var(--fs-300);
+    font-size: var(--fs-200);
 }
 
 h1,h2,h3,h4 {
