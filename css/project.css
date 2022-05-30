@@ -126,3 +126,7 @@
 .flip-card-back span {
     margin-top: 3ch;
 }
+
+.flip-card-back a:hover {
+    color: hsl(var(--clr-steelBlue));
+}
