@@ -1,7 +1,7 @@
 .project {
     background-color: hsl(var(--clr-steelBlue));
     min-width: 300px;
-    width: 70%;
+    width: 75%;
     border-radius: 12px;
     position: relative;
     display: flex;
@@ -18,10 +18,9 @@
 .project video, .project img {
     border: 1px solid hsl(var(--clr-darkSteel));
     width: 600px;
-    max-width: 90%;
     min-width: 200px;
-    opacity: 80%;
     max-width: 98%;
+    opacity: 80%;
 }
 
 .project img {
@@ -53,7 +52,7 @@
     flex-grow: 0.4;
     width: 35%;
     min-width: 300px;
-    max-width: 400px;
+    max-width: 600px;
     min-height: 360px;
     display: flex;
     flex-direction: column;
