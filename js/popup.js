@@ -25,8 +25,8 @@ function search(e) {
 }
 
 function configPopup(e, popup, direction) {
-    let width = e.offsetWidth * 0.8;
-    popup.style.minWidth = `${width}px`;
+    let minWidth = Math.max(e.offsetWidth * 0.8, 200);
+    popup.style.minWidth = `${minWidth}px`;
 
     e.addEventListener("click", adjustLocation(popup, direction, e));
     window.addEventListener("resize", () => popup.classList.remove("show"));
