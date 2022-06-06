@@ -311,10 +311,6 @@ nav {
     color: hsl(var(--clr-steelBlue));
 }
 
-.debug {
-    border: 2px solid green;
-}
-
 .alt-link:hover {
     color: hsl(var(--clr-lightSilver));
 }
