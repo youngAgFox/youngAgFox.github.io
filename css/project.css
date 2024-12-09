@@ -1,8 +1,15 @@
+#projects {
+    justify-content: space-around; 
+    align-items: center; 
+    padding: 0 2ch 15vh 2ch; 
+    gap: 30px; 
+    width: 100%;
+}
+
 .project {
     background-color: hsl(var(--clr-steelBlue));
     min-width: 300px;
     width: 75%;
-    border-radius: 12px;
     position: relative;
     display: flex;
     padding: 4ch 2ch;
@@ -104,6 +111,7 @@
     background-color: hsl(var(--clr-darkSteel));
     padding: 2ch;
     word-break: break-word;
+    justify-content: center;
 }
 
 .flip-card-back {
@@ -124,7 +132,7 @@
 
 .flip-card-back a,
 .flip-card-back span {
-    margin-top: 3ch;
+    margin-top: 2ch;
 }
 
 .flip-card-back a:hover {

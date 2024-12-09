@@ -67,6 +67,10 @@ body {
     height: auto;
 }
 
+hr {
+    width: 90%;
+}
+
 a {
     color: hsl(var(--clr-silver));
 }
@@ -84,12 +88,21 @@ img video {
     background-color: hsl(var(--clr-darkSteelBlue));
 }
 
+ul, ol {
+    list-style-position: inside;
+}
+
 p, ul, ol {
     font-size: var(--fs-200);
 }
 
+p {
+    margin-bottom: 1.5ch;
+}
+
 h1,h2,h3,h4 {
-    color: hsl(var(--clr-lightSilver));
+    color: hsl(var(--clr-darkSteelBlue));
+    margin-bottom: 1ch;
 }
 
 h1 {font-size: var(--fs-500);}
@@ -326,4 +339,18 @@ nav {
 .border-rounded {
     border-width: 4px;
     border-radius: 42px; 
+}
+
+.flip-card-back h3,
+.flip-card-back h4 {
+    margin-top: 1.5ch;
+    margin-bottom: 0.5ch;
+    color: hsl(var(--clr-silver));
+}
+
+.flip-card-front h2,
+.flip-card-front h3 {
+    color: hsl(var(--clr-steelBlue));
+    text-align: center;
+    margin-bottom: 2ch;
 }
